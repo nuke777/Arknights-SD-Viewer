@@ -52,7 +52,7 @@ var viewer = {
                 .attr("id","resultContainer")
                 .addClass("resultContainer"));
             viewer.loadFilter("type", "#searchType", "#ecd2fc");
-            viewer.loadFilter("group", "#searchGroup", "#ccccff");
+            //viewer.loadFilter("group", "#searchGroup", "#ccccff");
             viewer.loadFilter("rarity", "#searchRarity", "white");
             viewer.loadResults(viewer.searchResults);
         });
@@ -160,7 +160,7 @@ var viewer = {
         }
         viewer.searchResults = data;
         viewer.loadFilter("type", "#searchType", "#ecd2fc");
-        viewer.loadFilter("group", "#searchGroup", "#ccccff");
+        //viewer.loadFilter("group", "#searchGroup", "#ccccff");
         viewer.loadFilter("rarity", "#searchRarity", "white");
         viewer.loadResults(viewer.searchResults);
     },
