@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Arknights SD</title>
+        <style>
+
+            span {
+                display: inline-block;
+                vertical-align: middle;
+            }
+            .divCanvas {
+                height: 512px; 
+                width: 712px;  
+                background-image: url(https://media.nuke.moe/arknights/bg/zgreen.png); 
+                background-position: 50% 50%;
+                display: inline-block;
+            }
+            .selectStyle {
+                background-color: #24252d;
+                color: #ffffff;
+
+            }
+            .btnGenericText {
+                white-space: nowrap;
+                height: 30px;
+                text-align: center;
+                vertical-align: middle;
+                display: table-cell;
+                background-color: #24252d;
+                border-style: solid;
+                border-color: #5c5d70;
+                border-width: 1px;
+                cursor: pointer;
+                padding: 0px 7px 0px 7px;
+                font-size: 14px;
+                color: white;
+            }
+            .btnGenericText:hover {
+                box-shadow: 0px 0px 10px white;
+            }
+            .btnGenericText:active {
+                box-shadow: 1px 1px 4px white, -1px 1px 4px white, 1px -1px 4px white, -1px -1px 4px white;
+            }
+            .active {
+                box-shadow: 1px 1px 4px white, -1px 1px 4px white, 1px -1px 4px white, -1px -1px 4px white;
+            }
+            .darken {
+                height: 100%;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                position: absolute;
+                left: 0px;
+            }
+            .selector {
+                width: 80%;
+                height: 90%;
+                position: absolute;
+                left: 10%;
+                background-color: #5c5d70;
+                overflow-y: auto;
+                padding: 10px;
+                border-radius: 3px;
+            }
+            .thumbbutton {
+                cursor: pointer;
+                height: 90px;
+                width: 90px;
+                display: inline-block;
+                margin-top: 20px;
+                margin-left: 20px;
+                border-radius: 3px;
+            }
+            .operatorIcon {
+                cursor: pointer;
+                height: 70px;
+                width: 70px;
+                display: inline-block;
+                margin-top: 20px;
+                margin-left: 20px;
+                border-style: solid;
+                border-width: 2px;
+            }
+            .searchContainer {
+                width: 100%;                
+            }
+            .resultContainer {
+                width: 100%;
+            }
+            .vertical-descending
+            {
+                 -webkit-transform:rotate(270deg); 
+                 -moz-transform:rotate(270deg); 
+                 -o-transform:rotate(270deg); 
+                 -ms-transform:rotate(270deg); 
+                 transform:rotate(270deg); 
+            }
+            #footer {
+                position: absolute;
+                height: auto;
+                width: 100%;
+                overflow: hidden;
+                left: 0;
+                background-color: #24252d;
+                color: white;
+                text-align: left;
+                padding:10px 20px 10px 20px;
+                font-size:10px;
+            }
+
+        </style>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+
+
+    <body style="background-color: #494a5a; color: white;">
+        <div class="container">
+            <a href='https://ko-fi.com/K3K71DGPS' target='_blank'><img height='36' style='border:0px;height:36px; position: absolute; top: 1%; right: 1%' src='https://az743702.vo.msecnd.net/cdn/kofi2.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+            <div align="center" style="margin-bottom: 15px;">
+                <h1>Arknights SD Viewer</h1>
+            </div>
+            <nav class="clearfix">                
+                <div align="center" style="margin-bottom: 15px;">
+                    <div class="selectOperator btnGenericText" style="display: inline-block; margin-right: 15px; font-size: 17px; padding: 5px 10px 5px 10px; height:auto">
+                        <b>Select Operator</b>
+                    </div>
+                    <div class="btnGenericText" onclick="onSelectBG()" style="display: inline-block; font-size: 17px;  padding: 5px 10px 5px 10px; height:auto">
+                        <b>Change Background</b>
+                    </div>
+                </div> 
+                <div align="center" style="margin-bottom: 15px;">
+                    <div class="btnGenericText" id="front" style="display: inline-block; font-size: 14px; padding: 5px 10px 5px 10px; height:auto">
+                        Front
+                    </div>
+                    <div class="btnGenericText" id="back" style="display: inline-block; font-size: 14px;  padding: 5px 10px 5px 10px; height:auto">
+                        Back
+                    </div>
+                    <div class="btnGenericText" id="dorm" style="display: inline-block; font-size: 14px;  padding: 5px 10px 5px 10px; height:auto">
+                        Dorm
+                    </div>
+                </div>
+                <div align="center" id="skinContainer" style="margin-bottom: 15px;vertical-align: middle">
+
+                </div>
+                <div align="center">                    
+                    <div class="form-group" style="width: 65%; display: inline-block; margin-bottom: 15px;">
+                        <label><b>Animation</b></label>
+                        <select class="selectAnimation form-control" style="background-color: #24252d; color: #ffffff;"></select>
+                    </div>
+                </div>
+                <div align="center">
+                    <div class="Canvas divCanvas" id="SdCanvas" style="position: relative;">
+                        <input type="range" min="0" max="1" step="0.1" value="0.5" class="vertical-descending" style="position: absolute; top: 50%; left: -15%;">
+                        <label style="position: absolute; top: 50%; left: -15%"><b>Zoom</b></label>
+                    </div>
+                    
+                </div>
+            </nav>
+        </div>
+
+        <footer id="false" style="height:70px;width:100%;margin-top: 20px;">
+        </footer>
+
+        <footer id="footer">
+            Arknights © is owned by Hypergryph, Yostar | All logos and trademarks are property of their respective owners.<br>
+            This is a non-profit website.
+        </footer>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.7.1/pixi.min.js"></script>
+        <script src="src/sd/js/pixi-spine.js"></script>
+        <script src="src/sd/js/SkeletonBinary.js"></script>
+        <script src="src/sd/js/sd.js"></script>
+        <script src="src/sd/js/charData.js"></script>
+        <script src="src/sd/js/main.js"></script>
+        <script src="src/sd/js/backgroundData.js"></script>
+
+</html>
