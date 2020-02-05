@@ -163,14 +163,19 @@ var viewer = {
                     $("#back").css("display","inline-block");
                     $("#front").css("display","inline-block");
                     $("#dorm").css("display","inline-block");
-                    if (data[$(this).attr("id")].front != null || data[$(this).attr("id")].back != null || data[$(this).attr("id")].front != null){
+                    if (data[$(this).attr("id")].front != null || data[$(this).attr("id")].back != null || data[$(this).attr("id")].front != null || data[$(this).attr("id")].shop != null){
                         if (data[$(this).attr("id")].front != null){
                             $("#front").css("display","none");
-                            $("#back").trigger("click");
+                            //$("#back").trigger("click");
                         }
                         if (data[$(this).attr("id")].back != null){
                             $("#back").css("display","none");
-                            $("#front").trigger("click");
+                            //$("#front").trigger("click");
+                        }
+                        if (data[$(this).attr("id")].shop != null){
+                            $("#back").css("display","none");
+                            $("#dorm").css("display","none");
+                            //$("#front").trigger("click");
                         }
                     }
                     if (viewer.active == "enemy"){

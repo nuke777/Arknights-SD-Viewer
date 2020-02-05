@@ -847,5 +847,13 @@ var charData = {
 		"group" : "",
 		"rarity" : "★★★★★★",
 		"skin" : ["char_2014_nian",]
+	},
+	"closure" : {
+		"name" : "Closure",
+		"type" : "Shopkeeper",
+		"group" : "",
+		"rarity" : "",
+		"shop" : true,
+		"skin" : ["live_007_closre",]
 	}
 };
