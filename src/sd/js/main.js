@@ -305,7 +305,6 @@ function onChangeLog(){
             var date = response[i].commit.committer.date;
             date = date.replace("T", " ");
             date = date.replace("Z", " UTC");
-            console.log(message, date);
 
             $("#chglog").append($("<p></p>")
                 .css("line-height", "0.8")
@@ -321,6 +320,9 @@ function onChangeLog(){
 
     var xobj = new XMLHttpRequest();
     xobj.open("GET", "https://api.github.com/repos/alg-wiki/Arknights-SD-Viewer/commits?sha=gh-pages", true);
+    xobj.setRequestHeader("Authorization", "token c44bb04d2275b3c1849b49f02d8c1b473c5b6864");
+    //access token scope: <<no scope>>
+    //Grants read-only access to public information (includes public user profile info, public repository info, and gists)
     xobj.onreadystatechange = function () {
           if (xobj.readyState == 4 && xobj.status == "200") {
             // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
