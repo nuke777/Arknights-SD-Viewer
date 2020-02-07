@@ -12,7 +12,6 @@
             .divCanvas {
                 height: 512px; 
                 width: 712px;  
-                background-image: url(https://media.nuke.moe/arknights/bg/zgreen.png); 
                 background-position: 50% 50%;
                 display: inline-block;
             }
@@ -164,7 +163,7 @@
                     </div>
                 </div>
                 <div align="center" id="skinContainer" style="margin-bottom: 15px;vertical-align: middle">
-
+                    
                 </div>
                 <div align="center">                    
                     <div class="form-group" style="width: 65%; display: inline-block; margin-bottom: 15px;">
@@ -172,16 +171,25 @@
                         <select class="selectAnimation form-control" style="background-color: #24252d; color: #ffffff;"></select>
                     </div>
                 </div>
+                <div align="center" style="margin-bottom: 15px;vertical-align: middle">                    
+                    
+                </div>
                 <div align="center">
                     <div class="Canvas divCanvas" id="SdCanvas" style="position: relative;">
                         <input type="range" min="0" max="1" step="0.1" value="0.5" class="vertical-descending" style="position: absolute; top: 50%; left: -15%;">
                         <label style="position: absolute; top: 50%; left: -15%"><b>Zoom</b></label>
-                    </div>
+                        <div class="recordButton btnGenericText" onclick="record()" style="font-size: 17px; padding: 5px 10px 5px 10px; height:auto; position: absolute; top: 0%; left: -15%;">
+                            <b>● Record</b>
+                        </div>
+                        <div class="outputButton btnGenericText" onclick="" style="font-size: 17px; padding: 5px 10px 5px 10px; height:auto; position: absolute; top: 10%; left: -15%;color: gray">
+                            <b>Output</b>
+                        </div>
+                    </div>                 
                     
                 </div>
             </nav>
         </div>
-
+        
         <footer id="false" style="height:70px;width:100%;margin-top: 20px;">
         </footer>
 
@@ -195,6 +203,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.7.1/pixi.min.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+        <script src="src/sd/js/CCapture.all.min.js"></script>
         <script src="src/sd/js/pixi-spine.js"></script>
         <script src="src/sd/js/SkeletonBinary.js"></script>
         <script src="src/sd/js/sd.js"></script>
@@ -202,5 +211,6 @@
         <script src="src/sd/js/enemyData.js"></script>
         <script src="src/sd/js/main.js"></script>
         <script src="src/sd/js/backgroundData.js"></script>
+        <script src="src/sd/js/recorder.js"></script>
 
 </html>
