@@ -61,7 +61,7 @@ var charData = {
 		"type" : "Defender",
 		"group" : "",
 		"rarity" : "★★★★★",
-		"skin" : ["char_107_liskam_nian",]
+		"skin" : ["char_107_liskam","char_107_liskam_nian",]
 	},
 	"silent" : {
 		"name" : "Silence",
@@ -75,7 +75,7 @@ var charData = {
 		"type" : "Caster",
 		"group" : "Rhodes Island",
 		"rarity" : "★★★★",
-		"skin" : ["char_109_fmout",]
+		"skin" : ["char_109_fmout","char_109_fmout_epoque",]
 	},
 	"deepcl" : {
 		"name" : "Deepcolor",

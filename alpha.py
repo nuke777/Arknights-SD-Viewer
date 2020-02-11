@@ -6,7 +6,7 @@ import shutil
 from PIL import Image
 
 baseurl = "assets/sd/"
-folders = ["enemy/"]
+folders = ["base/","back/","front/"]
 
 for i in folders:
 	for file in os.listdir(baseurl + i):
