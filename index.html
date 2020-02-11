@@ -3,6 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title>Arknights SD</title>
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <style>
 
             span {
@@ -127,6 +129,44 @@
                 border-color: #5c5d70;
                 border-collapse: collapse;
             }
+            #toolbar {
+                width: 40px;
+                height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                background-color: #373743;
+                padding-left: 3px;
+                padding-top: 5px;
+                display: flex;
+                flex-direction: column;
+            }
+            .toolbar-button {
+                width: 34px;
+                height: 34px;
+                margin-bottom: 3px;
+                font-size: 20px;
+                display: inline-block;
+                line-height: 34px;
+                padding: 0px;
+            }
+            .tbb-highlight {
+                background-color: #3f2f52;
+                border-color: white;
+            }
+            .context {                
+                background-color: #373743;
+                border-style: solid;
+                border-color: #5c5d70;
+                border-width: 1px;
+                padding: 3px;
+                width: auto;
+                height: auto;
+                position: absolute;
+                left: 40px;
+                display: flex;
+                flex-direction: column;
+            }
 
         </style>
 
@@ -138,7 +178,6 @@
     <body style="background-color: #494a5a; color: white;">
         <div class="container">
             <a href='https://ko-fi.com/K3K71DGPS' target='_blank'><img height='36' style='border:0px;height:36px; position: absolute; top: 1%; right: 1%' src='https://az743702.vo.msecnd.net/cdn/kofi2.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
-            <button type="button" class="btn btn-secondary" style="position: absolute; top: 1%; left: 1%" onclick="onChangeLog()">Changelog</button>
             <div align="center" style="margin-bottom: 15px;">
                 <h1>Arknights SD Viewer</h1>
             </div>
@@ -176,18 +215,16 @@
                 </div>
                 <div align="center">
                     <div class="Canvas divCanvas" id="SdCanvas" style="position: relative;">
-                        <input type="range" min="0" max="1" step="0.1" value="0.5" class="vertical-descending" style="position: absolute; top: 50%; left: -15%;">
-                        <label style="position: absolute; top: 50%; left: -15%"><b>Zoom</b></label>
-                        <div class="recordButton btnGenericText" onclick="record()" style="font-size: 17px; padding: 5px 10px 5px 10px; height:auto; position: absolute; top: 0%; left: -15%;">
-                            <b>● Record</b>
-                        </div>
-                        <div class="outputButton btnGenericText" onclick="" style="font-size: 17px; padding: 5px 10px 5px 10px; height:auto; position: absolute; top: 10%; left: -15%;color: gray">
-                            <b>Output</b>
-                        </div>
                     </div>                 
                     
                 </div>
             </nav>
+        </div>
+
+        <div id="toolbar">
+            <div class="material-icons btnGenericText toolbar-button" onclick="onChangeLog()" data-toggle="tooltip" title="Changelog">announcement</div>
+            <div class="material-icons btnGenericText toolbar-button" data-toggle="tooltip" title="Record" id="tool_record">fiber_manual_record</div>
+            <div class="material-icons btnGenericText toolbar-button" data-toggle="tooltip" title="Zoom" id="tool_zoom">search</div>
         </div>
         
         <footer id="false" style="height:70px;width:100%;margin-top: 20px;">
@@ -212,5 +249,6 @@
         <script src="src/sd/js/main.js"></script>
         <script src="src/sd/js/backgroundData.js"></script>
         <script src="src/sd/js/recorder.js"></script>
+        <script src="src/sd/js/toolbar.js"></script>
 
 </html>

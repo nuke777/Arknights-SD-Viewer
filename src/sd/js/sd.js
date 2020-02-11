@@ -43,12 +43,12 @@ SD.prototype = {
 
                 this.spineData[name+"_"+this.identifier] = skeletonData;
                 v.changeCanvas(skeletonData);
-                v.spine.scale.set($(".vertical-descending").val(),$(".vertical-descending").val())
+                v.spine.scale.set(v.scale,v.scale);
                 callback2(false);
             });
         } else {
             v.changeCanvas(this.spineData[name]);
-            v.spine.scale.set($(".vertical-descending").val(),$(".vertical-descending").val())
+            v.spine.scale.set(v.scale,v.scale);
             callback2(false);
         }
     }

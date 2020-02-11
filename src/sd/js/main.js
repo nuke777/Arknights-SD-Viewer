@@ -1,5 +1,6 @@
 $(document).ready(function(){
     viewer.init();
+    toolbar.init();
   });
 
 var viewer = {
@@ -14,6 +15,7 @@ var viewer = {
         viewer.assetURL = "https://media.nuke.moe/arknights/";
         //viewer.assetURL = "../assets/";
         viewer.active = "operator";
+        viewer.scale = 0.5;
 
         viewer.canvas = $(".Canvas");
         viewer.selectAnimation = $(".selectAnimation");
@@ -23,11 +25,6 @@ var viewer = {
         viewer.selectAnimation.change(function() {
             viewer.changeAnimation(this.selectedIndex);
         });
-
-        $(".vertical-descending").on("input", () => {
-            if (viewer.spine != null)
-                viewer.spine.scale.set($(".vertical-descending").val(), $(".vertical-descending").val());
-        })
 
         viewer.app = new PIXI.Application(712, 512, {transparent: true});      
         viewer.canvas.append($(viewer.app.view));  
@@ -56,14 +53,20 @@ var viewer = {
                 document.getElementById("selector").top = (window.pageYOffset + (window.innerHeight * 0.05)) + "px";
             }
             var height = Math.max( document.body.scrollHeight, document.body.offsetHeight, 
-                               document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight );   
+                               document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight );  
             $("#footer").css("top",height - $("#footer").height() - 20);
         };
         $(document).ready(() => {
             var height = Math.max( document.body.scrollHeight, document.body.offsetHeight, 
                                document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight );   
             $("#footer").css("top",height - $("#footer").height() - 20);
+            toolbar.toolbar.css("top", window.pageYOffset);
         });
+        $(window).scroll(function(){
+            toolbar.toolbar.css("top", window.pageYOffset);
+        });
+
+
 
         $("#front").click(() => {
             $("#front").addClass("active");
@@ -220,6 +223,9 @@ var viewer = {
                         viewer.searchResults = charData;
                     }
                     $("#skinContainer").children(":first").trigger("click");
+                    var height = Math.max( document.body.scrollHeight, document.body.offsetHeight, 
+                                       document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight );  
+                    $("#footer").css("top",height - $("#footer").height() - 20);
                 }));
         }
     },
@@ -267,11 +273,13 @@ var viewer = {
     },
     drawBG : function(url){
         var bgimg = PIXI.Sprite.fromImage(url);
-        bgimg.anchor.x = 0;
-        bgimg.anchor.y = 0;
-        bgimg.position.x = 0;
-        bgimg.position.y = 0;
-        bgimg.zindex = -1;
+        var h, w;
+        h = viewer.app.view.height;
+        w = viewer.app.view.width;
+        bgimg.anchor.x = 0.5;
+        bgimg.anchor.y = 0.5;
+        bgimg.position.x = w/2;
+        bgimg.position.y = h/2;
         if (viewer.app.stage.children[0] != null)
             viewer.app.stage.removeChildAt(0);
         viewer.app.stage.addChildAt(bgimg,0);
