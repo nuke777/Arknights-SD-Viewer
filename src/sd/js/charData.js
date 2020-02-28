@@ -1,4 +1,18 @@
 var charData = {
+	"leizi" : {
+		"name" : "Leizi",
+		"type" : "Caster",
+		"group" : "Rhodes Island",
+		"rarity" : "★★★★★",
+		"skin" : ["char_306_leizi",]
+	},
+	"ceobe" : {
+		"name" : "Ceobe",
+		"type" : "Caster",
+		"group" : "Rhodes Island",
+		"rarity" : "★★★★★",
+		"skin" : ["char_2013_cerber",]
+	},
 	"amiya" : {
 		"name" : "Amiya",
 		"type" : "Caster",
@@ -166,7 +180,7 @@ var charData = {
 		"type" : "Medic",
 		"group" : "",
 		"rarity" : "★★★★★",
-		"skin" : ["char_128_plosis",]
+		"skin" : ["char_128_plosis","char_128_plosis_epoque_3",]
 	},
 	"bluep" : {
 		"name" : "Blue Poison",
