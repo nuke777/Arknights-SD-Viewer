@@ -1,4 +1,11 @@
 var charData = {
+	"finlpp" : {
+		"name" : "Purestream",
+		"type" : "Medic",
+		"group" : "Rhodes Island",
+		"rarity" : "★★★★",
+		"skin" : ["char_385_finlpp",]
+	},
 	"leizi" : {
 		"name" : "Leizi",
 		"type" : "Caster",
@@ -355,7 +362,7 @@ var charData = {
 		"type" : "Specialist",
 		"group" : "",
 		"rarity" : "★★★★★",
-		"skin" : ["char_173_slchan","char_173_slchan_wild",]
+		"skin" : ["char_173_slchan","char_173_slchan_wild","char_173_slchan_wwf"]
 	},
 	"slbell" : {
 		"name" : "Pramanix",

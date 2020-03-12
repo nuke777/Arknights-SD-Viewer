@@ -1,6 +1,7 @@
 $(document).ready(function(){
     viewer.init();
     toolbar.init();
+    spinebar.init();
   });
 
 var viewer = {
@@ -12,10 +13,13 @@ var viewer = {
         viewer.lastMouseY = 0;
         viewer.loaded = false;
         viewer.activeId = "";
-        viewer.assetURL = "https://media.nuke.moe/arknights/";
-        //viewer.assetURL = "../assets/";
+        //viewer.assetURL = "https://media.nuke.moe/arknights/";
+        viewer.assetURL = "../assets/";
         viewer.active = "operator";
         viewer.scale = 0.5;
+        //viewer.alpha = true;
+        viewer.selectedSpine = 0;
+        viewer.spine = [];
 
         viewer.canvas = $(".Canvas");
         viewer.selectAnimation = $(".selectAnimation");
@@ -39,7 +43,7 @@ var viewer = {
             var sx = event.clientX - event.target.getBoundingClientRect().left;
             var sy = event.clientY - event.target.getBoundingClientRect().top;
             if(viewer.mouse){
-                viewer.spine.position.set((sx - viewer.lastMouseX) + viewer.spine.position._x, (sy - viewer.lastMouseY) + viewer.spine.position._y);
+                viewer.spine[viewer.selectedSpine].position.set((sx - viewer.lastMouseX) + viewer.spine[viewer.selectedSpine].position._x, (sy - viewer.lastMouseY) + viewer.spine[viewer.selectedSpine].position._y);
 
                 viewer.lastMouseX = sx;
                 viewer.lastMouseY = sy;
@@ -48,6 +52,7 @@ var viewer = {
 
         window.onresize = (event) => {
             if (event === void 0) { event = null; }
+            $("#mainbody").width(spinebar.spinebar.position().left-40);
             if (document.getElementById("darken") != null){
                 document.getElementById("darken").top = window.pageYOffset + "px";
                 document.getElementById("selector").top = (window.pageYOffset + (window.innerHeight * 0.05)) + "px";
@@ -57,6 +62,7 @@ var viewer = {
             $("#footer").css("top",height - $("#footer").height() - 20);
         };
         $(document).ready(() => {
+            $("#mainbody").width(spinebar.spinebar.position().left-40);
             var height = Math.max( document.body.scrollHeight, document.body.offsetHeight, 
                                document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight );   
             $("#footer").css("top",height - $("#footer").height() - 20);
@@ -64,46 +70,19 @@ var viewer = {
         });
         $(window).scroll(function(){
             toolbar.toolbar.css("top", window.pageYOffset);
+            spinebar.spinebar.css("top", window.pageYOffset);
         });
 
 
 
-        $("#front").click(() => {
-            $("#front").addClass("active");
-            $("#back").removeClass("active");
-            $("#dorm").removeClass("active");
-            viewer.sd = new SD(viewer.assetURL+'sd/front','front');
-            if (viewer.loaded){
-                viewer.toggleButtonState(true);
-                viewer.sd.load(viewer.activeId, viewer, viewer.toggleButtonState);
-            }
-        }).trigger("click");
-        $("#back").click(() => {
-            $("#back").addClass("active");
-            $("#front").removeClass("active");
-            $("#dorm").removeClass("active");
-            viewer.sd = new SD(viewer.assetURL+'sd/back','back');
-            if (viewer.loaded){
-                viewer.toggleButtonState(true);
-                viewer.sd.load(viewer.activeId, viewer, viewer.toggleButtonState);
-            }
-        });
-        $("#dorm").click(() => {
-            $("#dorm").addClass("active");
-            $("#back").removeClass("active");
-            $("#front").removeClass("active");
-            viewer.sd = new SD(viewer.assetURL+'sd/base','base');
-            if (viewer.loaded){
-                viewer.toggleButtonState(true);
-                viewer.sd.load("build_"+viewer.activeId, viewer, viewer.toggleButtonState);
-            }
-        });
     },
     changeCanvas : function(skeletonData) {
-        viewer.app.stage.removeChildren();
+        //viewer.app.stage.removeChildren();
 
-        viewer.spine = new PIXI.spine.Spine(skeletonData);
-        var animations = viewer.spine.spineData.animations;
+        viewer.spine.push(new PIXI.spine.Spine(skeletonData));
+        viewer.spine[viewer.spine.length-1].name = skeletonData.name;
+        viewer.selectedSpine = viewer.spine.length - 1;
+        var animations = viewer.spine[viewer.selectedSpine].spineData.animations;
         var stringAnimations = "";
         for(var i = 0; i < animations.length; i++) {
             stringAnimations += "<option value=\"" + animations[i].name + "\">" + animations[i].name + "</option>";
@@ -112,12 +91,15 @@ var viewer = {
         viewer.changeAnimation(0);
         if (viewer.app.stage.children.length <= 1)
             viewer.drawBG(viewer.currentBG);
-        viewer.app.stage.addChild(viewer.spine);
-        viewer.spine.position.set(viewer.app.view.width * 0.5 , viewer.app.view.height * 0.8);
+        viewer.app.stage.addChild(viewer.spine[viewer.selectedSpine]);
+        viewer.spine[viewer.selectedSpine].position.set(viewer.app.view.width * 0.5 , viewer.app.view.height * 0.8);
+        console.log(viewer.app.stage.children);
+        spinebar.addToSpriteList({"icon":skeletonData.icon,"id":skeletonData.name,"index":viewer.selectedSpine});
+        //viewer.spine[viewer.selectedSpine].skeleton.flipX = true;
     },
     changeAnimation : function(num) {
-        var name = viewer.spine.spineData.animations[num].name;
-        viewer.spine.state.setAnimation(0, name, true);
+        var name = viewer.spine[viewer.selectedSpine].spineData.animations[num].name;
+        viewer.spine[viewer.selectedSpine].state.setAnimation(0, name, true);
     },
     search : function(filter, filterType, key){
         if (filter != null && filterType != null){
@@ -157,7 +139,7 @@ var viewer = {
                 .addClass("operatorIcon")
                 .attr("id",value)
                 .css("background", getColor(data[value].rarity)+" url("+viewer.assetURL+"portraits/"+data[value].skin[0]+extension+")")
-                .css("background-size", "70px 70px")
+                .css("background-size", "60px 60px")
                 .css("border-color", getColor(data[value].rarity))
                 .mouseover(function(){
                     $(this).css("background-size", "105%");
@@ -166,14 +148,75 @@ var viewer = {
                     $(this).css("background-size", "100%");
                 })
                 .click(function(){
-                    $("#skinContainer").empty();
-                    $("#back").css("display","inline-block");
-                    $("#front").css("display","inline-block");
-                    $("#dorm").css("display","inline-block");
+                    $(document.body).append($("<div></div>")
+                        .attr("id","darken2")
+                        .addClass("darken")
+                        .css("top", window.pageYOffset + "px")
+                        .click(function(){
+                            $('#darken2').remove();
+                            $('#selector2').remove();
+                            $(document.body).css("overflow", "auto");
+                            viewer.searchResults = charData;
+                        })
+                    )
+                    .append($("<div></div>")
+                        .attr("id","selector2")
+                        .addClass("selector")
+                        .css("top", (window.pageYOffset + (window.innerHeight * 0.05)) + "px")
+                    )
+                    .css("overflow", "hidden");
+
+                    $("#selector2").append($("<div></div>")
+                        .attr("id","persContainer")
+                        .attr("align","center")
+                    );
+
+                    $("#persContainer").append($("<div></div>")
+                        .attr("id","front")
+                        .addClass("btnGenericText")
+                        .addClass("persbutton")
+                        .html("Front")
+                        .click(() => {
+                            $("#front").addClass("active");
+                            $("#back").removeClass("active");
+                            $("#dorm").removeClass("active");
+                            viewer.sd = new SD(viewer.assetURL+'sd/front','front');
+                        })
+                    );
+
+                    $("#persContainer").append($("<div></div>")
+                        .attr("id","back")
+                        .addClass("btnGenericText")
+                        .addClass("persbutton")
+                        .html("Back")
+                        .click(() => {
+                            $("#back").addClass("active");
+                            $("#front").removeClass("active");
+                            $("#dorm").removeClass("active");
+                            viewer.sd = new SD(viewer.assetURL+'sd/back','back');
+                        })
+                    );
+
+                    $("#persContainer").append($("<div></div>")
+                        .attr("id","dorm")
+                        .addClass("btnGenericText")
+                        .addClass("persbutton")
+                        .html("Dorm")
+                        .click(() => {
+                            $("#dorm").addClass("active");
+                            $("#back").removeClass("active");
+                            $("#front").removeClass("active");
+                            viewer.sd = new SD(viewer.assetURL+'sd/base','base');
+                        })
+                    );
+
+                    $("#front").trigger("click");
+
                     if (data[$(this).attr("id")].front != null || data[$(this).attr("id")].back != null || data[$(this).attr("id")].front != null || data[$(this).attr("id")].shop != null){
                         if (data[$(this).attr("id")].front != null){
                             $("#front").css("display","none");
                             //$("#back").trigger("click");
+
                         }
                         if (data[$(this).attr("id")].back != null){
                             $("#back").css("display","none");
@@ -185,30 +228,28 @@ var viewer = {
                             //$("#front").trigger("click");
                         }
                     }
+
                     if (viewer.active == "enemy"){
                         $("#back").css("display","none");
                         $("#dorm").css("display","none");
                         $("#front").css("display","none");
                         viewer.sd = new SD(viewer.assetURL+'sd/enemy','enemy');
                     }
+
+                    $("#selector2").append($("<div></div>")
+                        .attr("id","skinContainer")
+                        .attr("align","center")
+                    );
+
                     for (var x in data[$(this).attr("id")].skin){
                         $("#skinContainer").append($("<div></div>")
                             .addClass("operatorIcon")
                             .attr("id",data[$(this).attr("id")].skin[x])
                             .css("background", getColor(data[$(this).attr("id")].rarity)+" url("+viewer.assetURL+"portraits/"+data[$(this).attr("id")].skin[x]+extension+")")
-                            .css("background-size", "70px 70px")
+                            .css("background-size", "60px 60px")
                             .css("border-color", getColor(data[$(this).attr("id")].rarity))
                             .click(function(){
                                 viewer.activeId = $(this).attr("id");
-                                if ($("#dorm").hasClass("active")){
-                                    viewer.toggleButtonState(true);
-                                    viewer.sd.load("build_"+viewer.activeId, viewer, viewer.toggleButtonState);
-                                }
-                                else{
-                                    viewer.toggleButtonState(true);
-                                    viewer.sd.load(viewer.activeId, viewer, viewer.toggleButtonState);
-                                }
-                                viewer.loaded = true;
                                 var self = this;
                                 $("#skinContainer").children("div").each(function(){
                                     if ($(this).attr("id") == $(self).attr("id"))
@@ -216,13 +257,41 @@ var viewer = {
                                     else
                                         $(this).css({"height":"50px","width":"50px","background-size":"100%"});
                                 });
-                            }));                                                       
+                            })
+                        );
+                        $("#"+data[$(this).attr("id")].skin[0]).trigger("click");
+                    }
+
+                    $("#selector2").append($("<div></div>")
+                        .attr("id","ctrlContainer")
+                        .attr("align","center")
+                        .css("margin-top","10px")
+                    );
+
+                    $("#ctrlContainer").append($("<div></div>")
+                        .attr("id","skinSelectOK")
+                        .addClass("btnGenericText")
+                        .html("<b>Select</b>")
+                    );
+
+                    $("#skinSelectOK").click(function() {
+                        if ($("#dorm").hasClass("active")){
+                            viewer.toggleButtonState(true);
+                            viewer.sd.load("build_"+viewer.activeId, viewer, viewer.toggleButtonState);
+                        }
+                        else{
+                            viewer.toggleButtonState(true);
+                            viewer.sd.load(viewer.activeId, viewer, viewer.toggleButtonState);
+                        }
+                        viewer.loaded = true;
                         $('#selector').remove();
                         $('#darken').remove();
+                        $('#selector2').remove();
+                        $('#darken2').remove();
                         $(document.body).css("overflow", "auto");
                         viewer.searchResults = charData;
-                    }
-                    $("#skinContainer").children(":first").trigger("click");
+                    });
+                    
                     var height = Math.max( document.body.scrollHeight, document.body.offsetHeight, 
                                        document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight );  
                     $("#footer").css("top",height - $("#footer").height() - 20);

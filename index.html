@@ -74,8 +74,8 @@
             }
             .operatorIcon {
                 cursor: pointer;
-                height: 70px;
-                width: 70px;
+                height: 60px;
+                width: 60px;
                 display: inline-block;
                 margin-top: 20px;
                 margin-left: 20px;
@@ -167,6 +167,28 @@
                 display: flex;
                 flex-direction: column;
             }
+            #spinebar {
+                width: 150px;
+                height: 100%;
+                position: absolute;
+                right: 0;
+                top: 0;
+                background-color: #373743;
+                display: flex;
+                flex-direction: column;
+            }
+            #mainbody {
+                position: absolute;
+                top: 0px;
+                left: 40px;
+            }
+            .persbutton {
+                display: inline-block;
+                font-size: 14px;
+                padding: 5px 10px 5px 10px;
+                height: auto;
+                margin: 0px 10px 0px 10px;
+            }
 
         </style>
 
@@ -175,8 +197,8 @@
     </head>
 
 
-    <body style="background-color: #494a5a; color: white;">
-        <div class="container">
+    <body style="background-color: #494a5a; color: white; ">
+        <div id="mainbody">
             <a href='https://ko-fi.com/K3K71DGPS' target='_blank'><img height='36' style='border:0px;height:36px; position: absolute; top: 1%; right: 1%' src='https://az743702.vo.msecnd.net/cdn/kofi2.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
             <div align="center" style="margin-bottom: 15px;">
                 <h1>Arknights SD Viewer</h1>
@@ -191,17 +213,17 @@
                     </div>
                 </div> 
                 <div align="center" style="margin-bottom: 15px;">
-                    <div class="btnGenericText" id="front" style="display: inline-block; font-size: 14px; padding: 5px 10px 5px 10px; height:auto; display:none">
+                    <div class="btnGenericText" id="front2" style="display: inline-block; font-size: 14px; padding: 5px 10px 5px 10px; height:auto; display:none">
                         Front
                     </div>
-                    <div class="btnGenericText" id="back" style="display: inline-block; font-size: 14px;  padding: 5px 10px 5px 10px; height:auto; display:none">
+                    <div class="btnGenericText" id="back2" style="display: inline-block; font-size: 14px;  padding: 5px 10px 5px 10px; height:auto; display:none">
                         Back
                     </div>
-                    <div class="btnGenericText" id="dorm" style="display: inline-block; font-size: 14px;  padding: 5px 10px 5px 10px; height:auto; display:none">
+                    <div class="btnGenericText" id="dorm2" style="display: inline-block; font-size: 14px;  padding: 5px 10px 5px 10px; height:auto; display:none">
                         Dorm
                     </div>
                 </div>
-                <div align="center" id="skinContainer" style="margin-bottom: 15px;vertical-align: middle">
+                <div align="center" id="skinContainer2" style="margin-bottom: 15px;vertical-align: middle">
                     
                 </div>
                 <div align="center">                    
@@ -226,6 +248,14 @@
             <div class="material-icons btnGenericText toolbar-button" data-toggle="tooltip" title="Record" id="tool_record">fiber_manual_record</div>
             <div class="material-icons btnGenericText toolbar-button" data-toggle="tooltip" title="Zoom" id="tool_zoom">search</div>
         </div>
+
+        <div id="spinebar">
+            <div style="width: 100%; height: 35px; border-bottom: 2px solid #5c5d70; border-top: 2px solid #5c5d70; display: inline-block; line-height: 30px; padding-left: 10px; vertical-align: middle; background-color: #24252d;"><b>Sprites</b></div>
+            <div id="spriteContainer" style="width: 100%; display: flex; flex-direction: column; padding: 3px">
+                
+            </div>
+        </div>
+     </body>   
         
         <footer id="false" style="height:70px;width:100%;margin-top: 20px;">
         </footer>
@@ -250,5 +280,6 @@
         <script src="src/sd/js/backgroundData.js"></script>
         <script src="src/sd/js/recorder.js"></script>
         <script src="src/sd/js/toolbar.js"></script>
+        <script src="src/sd/js/spinebar.js"></script>
 
 </html>

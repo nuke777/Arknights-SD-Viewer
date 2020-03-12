@@ -40,16 +40,24 @@ SD.prototype = {
                 var spineAtlasLoader = new PIXI.spine.core.AtlasAttachmentLoader(spineAtlas);
                 var spineJsonParser = new PIXI.spine.core.SkeletonJson(spineAtlasLoader);
                 var skeletonData = spineJsonParser.readSkeletonData(rawSkeletonData);
-
+                skeletonData.name = name + "_" + this.identifier + "_" + guidGenerator();
+                skeletonData.icon = name; 
                 this.spineData[name+"_"+this.identifier] = skeletonData;
                 v.changeCanvas(skeletonData);
-                v.spine.scale.set(v.scale,v.scale);
+                v.spine[viewer.selectedSpine].scale.set(v.scale,v.scale);
                 callback2(false);
             });
         } else {
             v.changeCanvas(this.spineData[name]);
-            v.spine.scale.set(v.scale,v.scale);
+            v.spine[viewer.selectedSpine].scale.set(v.scale,v.scale);
             callback2(false);
         }
     }
+}
+
+function guidGenerator(){
+    var S4 = function() {
+        return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+    };
+    return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
 }
