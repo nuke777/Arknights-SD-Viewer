@@ -80,13 +80,7 @@ var viewer = {
         viewer.spine.push(new PIXI.spine.Spine(skeletonData));
         viewer.spine[viewer.spine.length-1].name = skeletonData.name;
         viewer.selectedSpine = viewer.spine.length - 1;
-        var animations = viewer.spine[viewer.selectedSpine].spineData.animations;
-        var stringAnimations = "";
-        for(var i = 0; i < animations.length; i++) {
-            stringAnimations += "<option value=\"" + animations[i].name + "\">" + animations[i].name + "</option>";
-        }
-        viewer.selectAnimation.html(stringAnimations);
-        viewer.changeAnimation(0);
+        
         if (viewer.app.stage.children.length <= 1)
             viewer.drawBG(viewer.currentBG);
         viewer.app.stage.addChild(viewer.spine[viewer.selectedSpine]);

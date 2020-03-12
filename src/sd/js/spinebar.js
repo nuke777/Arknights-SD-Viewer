@@ -34,5 +34,13 @@ var spinebar = {
     	spinebar.container.children().css("border", "2px solid #5c5d70");
     	$("#"+id).css("border", "2px solid red");
     	viewer.selectedSpine = index;
+
+    	var animations = viewer.spine[viewer.selectedSpine].spineData.animations;
+        var stringAnimations = "";
+        for(var i = 0; i < animations.length; i++) {
+            stringAnimations += "<option value=\"" + animations[i].name + "\">" + animations[i].name + "</option>";
+        }
+        viewer.selectAnimation.html(stringAnimations);
+        viewer.changeAnimation(0);
     }
 };
