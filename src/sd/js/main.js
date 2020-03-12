@@ -77,8 +77,6 @@ var viewer = {
 
     },
     changeCanvas : function(skeletonData) {
-        //viewer.app.stage.removeChildren();
-
         viewer.spine.push(new PIXI.spine.Spine(skeletonData));
         viewer.spine[viewer.spine.length-1].name = skeletonData.name;
         viewer.selectedSpine = viewer.spine.length - 1;
