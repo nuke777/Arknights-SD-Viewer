@@ -167,6 +167,19 @@
                 display: flex;
                 flex-direction: column;
             }
+            .rightContext {
+                background-color: #373743;
+                border-style: solid;
+                border-color: #5c5d70;
+                border-width: 1px;
+                padding: 3px;
+                width: 200px;
+                height: 200px;
+                position: absolute;
+                right: 150px;
+                display: flex;
+                flex-direction: column;
+            }
             #spinebar {
                 width: 150px;
                 height: 100%;
@@ -189,10 +202,57 @@
                 height: auto;
                 margin: 0px 10px 0px 10px;
             }
+            .spinetoolbutton {
+                width: 50%; 
+                height: 30px; 
+                display: inline-block; 
+                line-height: 30px; 
+                vertical-align: middle; 
+                text-align: center; 
+                border : 1px solid #5c5d70;
+                cursor: pointer;
+            }
+            .q {
+                background-color: #ff803e;
+                color: white;
+            }
+            .disabled-btn {
+                background-color: white;
+                color: gray;
+                cursor: none;
+            }
+            .spinetoolbutton:hover {
+                background-color: gray;
+            }
+            .spinetoolbutton:active {
+                background-color: white;
+                color: black;
+            }
+            .spineoptionbutton{
+                height: 66px;
+                width : 20px;
+                border: 1px solid #5c5d70;
+                background-color: #373743;
+                float: left;
+                margin-right: 3px; 
+                display: inline-block; 
+                line-height: 66px; 
+                vertical-align: middle; 
+                text-align: center;
+                font-size: 18px;
+                cursor: pointer;
+            }
+            .spineoptionbutton:hover {
+                background-color: gray;
+            }
+            .spineoptionbutton:active {
+                background-color: white;
+                color: black;
+            }
 
         </style>
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="src/lib/css/bootstrap.min.css"> <!-- 4.3.1-->
         <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
     </head>
 
@@ -205,9 +265,6 @@
             </div>
             <nav class="clearfix">                
                 <div align="center" style="margin-bottom: 15px;">
-                    <div class="selectOperator btnGenericText" onclick="onSelectOperator()" style="display: inline-block; margin-right: 15px; font-size: 17px; padding: 5px 10px 5px 10px; height:auto">
-                        <b>Select SD</b>
-                    </div>
                     <div class="selectBG btnGenericText" onclick="onSelectBG()" style="display: inline-block; font-size: 17px;  padding: 5px 10px 5px 10px; height:auto">
                         <b>Change Background</b>
                     </div>
@@ -246,11 +303,15 @@
         <div id="toolbar">
             <div class="material-icons btnGenericText toolbar-button" onclick="onChangeLog()" data-toggle="tooltip" title="Changelog">announcement</div>
             <div class="material-icons btnGenericText toolbar-button" data-toggle="tooltip" title="Record" id="tool_record">fiber_manual_record</div>
-            <div class="material-icons btnGenericText toolbar-button" data-toggle="tooltip" title="Zoom" id="tool_zoom">search</div>
+            <div class="material-icons btnGenericText toolbar-button" data-toggle="tooltip" title="Zoom" id="tool_zoom" style="display:none">search</div>
         </div>
 
         <div id="spinebar">
             <div style="width: 100%; height: 35px; border-bottom: 2px solid #5c5d70; border-top: 2px solid #5c5d70; display: inline-block; line-height: 30px; padding-left: 10px; vertical-align: middle; background-color: #24252d;"><b>Sprites</b></div>
+            <div style="display: table-cell; width: 100%; height: 30px">
+                <div class="selectOperator material-icons spinetoolbutton q" onclick="onSelectOperator()">add</div>
+                <div class="material-icons spinetoolbutton" style="float: right;" id="removeSprite">clear</div>
+            </div>
             <div id="spriteContainer" style="width: 100%; display: flex; flex-direction: column; padding: 3px">
                 
             </div>

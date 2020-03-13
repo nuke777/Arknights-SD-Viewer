@@ -18,7 +18,7 @@ var viewer = {
         viewer.active = "operator";
         viewer.scale = 0.5;
         //viewer.alpha = true;
-        viewer.selectedSpine = 0;
+        viewer.selectedSpine = -1;
         viewer.spine = [];
 
         viewer.canvas = $(".Canvas");
@@ -85,7 +85,7 @@ var viewer = {
             viewer.drawBG(viewer.currentBG);
         viewer.app.stage.addChild(viewer.spine[viewer.selectedSpine]);
         viewer.spine[viewer.selectedSpine].position.set(viewer.app.view.width * 0.5 , viewer.app.view.height * 0.8);
-        console.log(viewer.app.stage.children);
+        //console.log(viewer.app.stage.children);
         spinebar.addToSpriteList({"icon":skeletonData.icon,"id":skeletonData.name,"index":viewer.selectedSpine});
         //viewer.spine[viewer.selectedSpine].skeleton.flipX = true;
     },
@@ -315,20 +315,23 @@ var viewer = {
         }
     },
     toggleButtonState : function(b){
-        viewer.selectOperator.prop("disabled", b);
         viewer.selectAnimation.prop("disabled", b);
         viewer.selectBG.prop("disabled", b);
         if (b){
             viewer.selectAnimation.css("color","gray");
             viewer.selectBG.css("color","gray");
             viewer.selectBG.attr("onclick","");
-            viewer.selectOperator.css("color","gray");
+            viewer.selectOperator.removeClass("q");
+            viewer.selectOperator.removeClass("spinetoolbar");
+            viewer.selectOperator.addClass("disabled-btn");
             viewer.selectOperator.attr("onclick","");
         } else {
             viewer.selectAnimation.css("color","white");
             viewer.selectBG.css("color","white");
             viewer.selectBG.attr("onclick","onSelectBG()");
-            viewer.selectOperator.css("color","white");
+            viewer.selectOperator.removeClass("disabled-btn");
+            viewer.selectOperator.addClass("spinetoolbar");
+            viewer.selectOperator.addClass("q");
             viewer.selectOperator.attr("onclick","onSelectOperator()");
         }
     },

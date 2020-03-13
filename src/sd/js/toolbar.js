@@ -78,9 +78,9 @@ var toolbar = {
 		zoom_input.attr("value",viewer.scale);
 		zoom_input.attr("id","zoom_input");
 		zoom_input.on("input", () => {
-        if (viewer.spine != null)
+        if (viewer.spine[viewer.selectedSpine] != null)
         	viewer.scale = zoom_input.val();
-            viewer.spine.scale.set(viewer.scale, viewer.scale);
+            viewer.spine[viewer.selectedSpine].scale.set(viewer.scale, viewer.scale);
         });
 		
 		var context = $("<div></div>");
