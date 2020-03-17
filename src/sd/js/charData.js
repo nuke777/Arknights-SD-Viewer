@@ -1,4 +1,32 @@
 var charData = {
+	"bpipe" : {
+		"name" : "Bagpipe",
+		"type" : "Vanguard",
+		"group" : "Rhodes Island",
+		"rarity" : "★★★★★★",
+		"skin" : ["char_222_bpipe",]
+	},
+	"bibeak" : {
+		"name" : "Bibeak",
+		"type" : "Guard",
+		"group" : "Rhodes Island",
+		"rarity" : "★★★★★",
+		"skin" : ["char_252_bibeak",]
+	},
+	"sesa" : {
+		"name" : "Sesa",
+		"type" : "Sniper",
+		"group" : "Rhodes Island",
+		"rarity" : "★★★★★",
+		"skin" : ["char_379_sesa",]
+	},
+	"utage" : {
+		"name" : "Utage",
+		"type" : "Guard",
+		"group" : "Rhodes Island",
+		"rarity" : "★★★★",
+		"skin" : ["char_337_utage",]
+	},
 	"finlpp" : {
 		"name" : "Purestream",
 		"type" : "Medic",
@@ -117,7 +145,7 @@ var charData = {
 		"type" : "Vanguard",
 		"group" : "",
 		"rarity" : "★★★★★",
-		"skin" : ["char_115_headbr",]
+		"skin" : ["char_115_headbr","char_115_headbr_marthe",]
 	},
 	"myrrh" : {
 		"name" : "Myrrh",
@@ -229,7 +257,7 @@ var charData = {
 		"type" : "Defender",
 		"group" : "",
 		"rarity" : "★★★★★★",
-		"skin" : ["char_136_hsguma",]
+		"skin" : ["char_136_hsguma","char_136_hsguma_nian",]
 	},
 	"brownb" : {
 		"name" : "Beehunter",
@@ -411,7 +439,7 @@ var charData = {
 		"type" : "Medic",
 		"group" : "",
 		"rarity" : "★★★★",
-		"skin" : ["char_187_ccheal",]
+		"skin" : ["char_187_ccheal","char_187_ccheal_epoque",]
 	},
 	"helage" : {
 		"name" : "Hellagur",
@@ -876,5 +904,12 @@ var charData = {
 		"rarity" : "",
 		"shop" : true,
 		"skin" : ["live_007_closre",]
+	},
+	"peacok" : {
+		"name" : "Conviction",
+		"type" : "?",
+		"group" : "",
+		"rarity" : "?",
+		"skin" : ["char_159_peacok",]
 	}
 };
