@@ -901,15 +901,15 @@ var charData = {
 		"name" : "Closure",
 		"type" : "Shopkeeper",
 		"group" : "",
-		"rarity" : "",
+		"rarity" : "?",
 		"shop" : true,
 		"skin" : ["live_007_closre",]
 	},
 	"peacok" : {
 		"name" : "Conviction",
-		"type" : "?",
+		"type" : "Specialist",
 		"group" : "",
-		"rarity" : "?",
+		"rarity" : "★★★",
 		"skin" : ["char_159_peacok",]
 	}
 };
