@@ -111,9 +111,9 @@ var spinebar = {
         $(document.body).append(context);
 
         spinebar.option_zoom(index, context);
+        spinebar.option_speed(index, context);
         spinebar.option_flip_x(index, context);
         spinebar.option_flip_y(index, context);
-
 
     },
     option_zoom: function(index, context){
@@ -121,42 +121,87 @@ var spinebar = {
         zoom_container.css({
         	"border-bottom": "1px solid #5c5d70",
         	"width" : "100%",
+        	"height" : "35px"
         });
         context.append(zoom_container);
 
         var zoom_text = $("<font></font>");
+        var zoom_input = $("<input>");
+        var zoom_text_input = $("<input>");
+
+        zoom_container.append(zoom_text)
+        zoom_container.append(zoom_text_input);
+        zoom_container.append(zoom_input);
+
         zoom_text.css({
         	"font-size" : "14px",
-        	"margin-right" : "10px"
+        	"margin-right" : "10px",
+        	"display" : "inline-block",
+        	"line-height" : "35px",
+        	"vertical-align" : "middle"
         });
         zoom_text.html("<b>Zoom</b>");
-        zoom_container.append(zoom_text)
 
-        var zoom_input = $("<input>");
 		zoom_input.attr("type","range");
 		zoom_input.attr("min","0");
 		zoom_input.attr("max","1");
 		zoom_input.attr("step","0.1");
 		zoom_input.attr("value",viewer.spine[index].scale._x);
 		zoom_input.attr("id","zoom_input");
+		zoom_input.css({
+        	"display" : "inline-block",
+        	"line-height" : "35px",
+        	"vertical-align" : "middle"
+        });
 		zoom_input.on("input", () => {
         if (viewer.spine[index] != null)
             viewer.spine[index].scale.set(zoom_input.val(), zoom_input.val());
+        	zoom_text_input.val(zoom_input.val());
         });
-        zoom_container.append(zoom_input);
+
+        zoom_text_input.attr("type","number");
+        zoom_text_input.attr("min","0");
+        zoom_text_input.attr("max","1");
+        zoom_text_input.attr("step","0.1");
+        zoom_text_input.attr("value",viewer.spine[index].scale._x);
+        zoom_text_input.attr("id","zoom_text_input");
+        zoom_text_input.css({
+        	"width": "40px",
+        	"height": "20px",
+        	"font-size": "12px",
+        	"margin-right": "10px"
+        });
+        zoom_text_input.on("input", function(){
+        	if (zoom_text_input.val() < 0){
+        		zoom_text_input.css("color","red");
+        	} 
+        	if (zoom_text_input.val() > 1){
+        		zoom_text_input.css("color","red");
+        	}
+        	if ((zoom_text_input.val() <= 1) && (zoom_text_input.val() >= 0)){
+        		zoom_text_input.css("color","black");
+        		zoom_input.val(zoom_text_input.val());
+        		zoom_input.trigger("input");
+        	}
+        	
+        });
     },
     option_flip_x: function(index, context){
     	var flip_x_container = $("<div></div>");
         flip_x_container.css({
         	"border-bottom": "1px solid #5c5d70",
         	"width" : "100%",
+        	"height" : "35px"
         });
         context.append(flip_x_container);
 
         var flip_x_text = $("<font></font>");
         flip_x_text.css({
         	"font-size" : "14px",
-        	"margin-right" : "10px"
+        	"margin-right" : "10px",
+        	"display" : "inline-block",
+        	"line-height" : "35px",
+        	"vertical-align" : "middle"
         });
         flip_x_text.html("<b>FlipX</b>");
         flip_x_container.append(flip_x_text)
@@ -175,13 +220,17 @@ var spinebar = {
         flip_y_container.css({
         	"border-bottom": "1px solid #5c5d70",
         	"width" : "100%",
+        	"height" : "35px"
         });
         context.append(flip_y_container);
 
         var flip_y_text = $("<font></font>");
         flip_y_text.css({
         	"font-size" : "14px",
-        	"margin-right" : "10px"
+        	"margin-right" : "10px",
+        	"display" : "inline-block",
+        	"line-height" : "35px",
+        	"vertical-align" : "middle"
         });
         flip_y_text.html("<b>FlipY</b>");
         flip_y_container.append(flip_y_text)
@@ -195,6 +244,76 @@ var spinebar = {
         });
         flip_y_container.append(flip_y_input);
     },
+    option_speed: function(index, context){
+    	var speed_container = $("<div></div>");
+        speed_container.css({
+        	"border-bottom": "1px solid #5c5d70",
+        	"width" : "100%",
+        	"height" : "35px"
+        });
+        context.append(speed_container);
+
+        var speed_text = $("<font></font>");
+        var speed_input = $("<input>");
+        var speed_text_input = $("<input>");
+
+        speed_container.append(speed_text)
+        speed_container.append(speed_text_input);
+        speed_container.append(speed_input);
+
+        speed_text.css({
+        	"font-size" : "14px",
+        	"margin-right" : "10px",
+        	"display" : "inline-block",
+        	"line-height" : "35px",
+        	"vertical-align" : "middle"
+        });
+        speed_text.html("<b>Speed</b>");
+
+		speed_input.attr("type","range");
+		speed_input.attr("min","0.01");
+		speed_input.attr("max","8.00");
+		speed_input.attr("step","0.01");
+		speed_input.attr("value",viewer.spine[index].state.timeScale);
+		speed_input.attr("id","speed_input");
+		speed_input.css({
+        	"display" : "inline-block",
+        	"line-height" : "35px",
+        	"vertical-align" : "middle"
+        });
+		speed_input.on("input", () => {
+        if (viewer.spine[index] != null)
+            viewer.spine[index].state.timeScale = speed_input.val();
+        	speed_text_input.val(speed_input.val());
+        });
+
+        speed_text_input.attr("type","number");
+        speed_text_input.attr("min","0.01");
+        speed_text_input.attr("max","8.00");
+        speed_text_input.attr("step","0.01");
+        speed_text_input.attr("value",viewer.spine[index].state.timeScale);
+        speed_text_input.attr("id","speed_text_input");
+        speed_text_input.css({
+        	"width": "45px",
+        	"height": "20px",
+        	"font-size": "12px",
+        	"margin-right": "10px"
+        });
+        speed_text_input.on("input", function(){
+        	if (speed_text_input.val() < 0.01){
+        		speed_text_input.css("color","red");
+        	} 
+        	if (speed_text_input.val() > 8){
+        		speed_text_input.css("color","red");
+        	}
+        	if ((speed_text_input.val() <= 8) && (speed_text_input.val() >= 0.01)){
+        		speed_text_input.css("color","black");
+        		speed_input.val(speed_text_input.val());
+        		speed_input.trigger("input");
+        	}
+        	
+        });
+    },    
     _removeSprite: function(){
     	if (spinebar.list.length == 0)
     		return;

@@ -85,9 +85,7 @@ var viewer = {
             viewer.drawBG(viewer.currentBG);
         viewer.app.stage.addChild(viewer.spine[viewer.selectedSpine]);
         viewer.spine[viewer.selectedSpine].position.set(viewer.app.view.width * 0.5 , viewer.app.view.height * 0.8);
-        //console.log(viewer.app.stage.children);
         spinebar.addToSpriteList({"icon":skeletonData.icon,"id":skeletonData.name,"index":viewer.selectedSpine});
-        //viewer.spine[viewer.selectedSpine].skeleton.flipX = true;
     },
     changeAnimation : function(num) {
         var name = viewer.spine[viewer.selectedSpine].spineData.animations[num].name;
