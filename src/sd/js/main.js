@@ -13,8 +13,8 @@ var viewer = {
         viewer.lastMouseY = 0;
         viewer.loaded = false;
         viewer.activeId = "";
-        //viewer.assetURL = "https://media.nuke.moe/arknights/";
-        viewer.assetURL = "../assets/";
+        viewer.assetURL = "https://media.nuke.moe/arknights/";
+        //viewer.assetURL = "../assets/";
         viewer.active = "operator";
         viewer.scale = 0.5;
         //viewer.alpha = true;
@@ -30,7 +30,7 @@ var viewer = {
             viewer.changeAnimation(this.selectedIndex);
         });
 
-        viewer.app = new PIXI.Application(712, 512, {transparent: true, antialias: true});      
+        viewer.app = new PIXI.Application(712, 512, {transparent: true});      
         viewer.canvas.append($(viewer.app.view));  
         viewer.drawBG(viewer.currentBG);      
         $(viewer.app.view).mousedown(() => {
