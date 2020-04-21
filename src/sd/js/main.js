@@ -13,8 +13,8 @@ var viewer = {
         viewer.lastMouseY = 0;
         viewer.loaded = false;
         viewer.activeId = "";
-        viewer.assetURL = "https://media.nuke.moe/arknights/";
-        //viewer.assetURL = "../assets/";
+        //viewer.assetURL = "https://media.nuke.moe/arknights/";
+        viewer.assetURL = "../assets/";
         viewer.active = "operator";
         viewer.scale = 0.5;
         //viewer.alpha = true;
@@ -30,7 +30,7 @@ var viewer = {
             viewer.changeAnimation(this.selectedIndex);
         });
 
-        viewer.app = new PIXI.Application(712, 512, {transparent: true});      
+        viewer.app = new PIXI.Application(712, 512, {transparent: true, antialias: true});      
         viewer.canvas.append($(viewer.app.view));  
         viewer.drawBG(viewer.currentBG);      
         $(viewer.app.view).mousedown(() => {
@@ -86,6 +86,7 @@ var viewer = {
         viewer.app.stage.addChild(viewer.spine[viewer.selectedSpine]);
         viewer.spine[viewer.selectedSpine].position.set(viewer.app.view.width * 0.5 , viewer.app.view.height * 0.8);
         spinebar.addToSpriteList({"icon":skeletonData.icon,"id":skeletonData.name,"index":viewer.selectedSpine});
+ 
     },
     changeAnimation : function(num) {
         var name = viewer.spine[viewer.selectedSpine].spineData.animations[num].name;
@@ -202,7 +203,7 @@ var viewer = {
 
                     $("#front").trigger("click");
 
-                    if (data[$(this).attr("id")].front != null || data[$(this).attr("id")].back != null || data[$(this).attr("id")].front != null || data[$(this).attr("id")].shop != null){
+                    if (data[$(this).attr("id")].front != null || data[$(this).attr("id")].back != null || data[$(this).attr("id")].dorm != null || data[$(this).attr("id")].shop != null){
                         if (data[$(this).attr("id")].front != null){
                             $("#front").css("display","none");
                             //$("#back").trigger("click");
@@ -210,6 +211,10 @@ var viewer = {
                         }
                         if (data[$(this).attr("id")].back != null){
                             $("#back").css("display","none");
+                            //$("#front").trigger("click");
+                        }
+                        if (data[$(this).attr("id")].dorm != null){
+                            $("#dorm").css("display","none");
                             //$("#front").trigger("click");
                         }
                         if (data[$(this).attr("id")].shop != null){

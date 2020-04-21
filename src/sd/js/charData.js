@@ -1,4 +1,39 @@
 var charData = {
+	"phatom" : {
+		"name" : "Phantom",
+		"type" : "Specialist",
+		"group" : "Rhodes Island",
+		"rarity" : "★★★★★★",
+		"skin" : ["char_250_phatom",]
+	},
+	"sidero" : {
+		"name" : "Sideroca",
+		"type" : "Guard",
+		"group" : "Rhodes Island",
+		"rarity" : "★★★★★",
+		"skin" : ["char_333_sidero",]
+	},
+	"vodfox" : {
+		"name" : "Shamare",
+		"type" : "Supporter",
+		"group" : "Rhodes Island",
+		"rarity" : "★★★★★",
+		"skin" : ["char_254_vodfox",]
+	},
+	"cutter" : {
+		"name" : "Cutter",
+		"type" : "Guard",
+		"group" : "Rhodes Island",
+		"rarity" : "★★★★",
+		"skin" : ["char_301_cutter",]
+	},
+	"peacok" : {
+		"name" : "Conviction",
+		"type" : "Guard",
+		"group" : "",
+		"rarity" : "★★★★",
+		"skin" : ["char_159_peacok",]
+	},
 	"bpipe" : {
 		"name" : "Bagpipe",
 		"type" : "Vanguard",
@@ -897,6 +932,68 @@ var charData = {
 		"rarity" : "★★★★★★",
 		"skin" : ["char_2014_nian",]
 	},
+	"silent_healrb" : {
+		"name" : "Silence - Drone",
+		"type" : "Summon",
+		"group" : "",
+		"rarity" : "★★★★★",
+		"skin" : ["token_10000_silent_healrb","token_10000_silent_healrb_sweep",],
+		"back" : false,
+		"dorm" : false,
+	},
+	"deepcl_tentac" : {
+		"name" : "Deepcolor - Tentacle",
+		"type" : "Summon",
+		"group" : "",
+		"rarity" : "★★★★",
+		"skin" : ["token_10001_deepcl_tentac",],
+		"back" : false,
+		"dorm" : false,
+	},
+	"cgbird_bird" : {
+		"name" : "Nightingale - Birdcage",
+		"type" : "Summon",
+		"group" : "",
+		"rarity" : "★★★★★★",
+		"skin" : ["token_10003_cgbird_bird","token_10003_cgbird_bird_witch",],
+		"back" : false,
+		"dorm" : false,
+	},
+	"otter_motter" : {
+		"name" : "Mayer - Meebo",
+		"type" : "Summon",
+		"group" : "",
+		"rarity" : "★★★★★",
+		"skin" : ["token_10004_otter_motter",],
+		"back" : false,
+		"dorm" : false,
+	},
+	"mgllan_drone" : {
+		"name" : "Magallan - Drone",
+		"type" : "Summon",
+		"group" : "",
+		"rarity" : "★★★★★★",
+		"skin" : ["token_10005_mgllan_drone1","token_10005_mgllan_drone2","token_10005_mgllan_drone3",],
+		"back" : false,
+		"dorm" : false,
+	},
+	"phatom_twin" : {
+		"name" : "Phantom - Shadow",
+		"type" : "Summon",
+		"group" : "",
+		"rarity" : "★★★★★★",
+		"skin" : ["token_10007_phatom_twin",],
+		"dorm" : false,
+	},
+	"vodfox_doll" : {
+		"name" : "Shamare - Doll",
+		"type" : "Summon",
+		"group" : "",
+		"rarity" : "★★★★★",
+		"skin" : ["token_10006_vodfox_doll",],
+		"back" : false,
+		"dorm" : false,
+	},
 	"closure" : {
 		"name" : "Closure",
 		"type" : "Shopkeeper",
@@ -904,12 +1001,5 @@ var charData = {
 		"rarity" : "?",
 		"shop" : true,
 		"skin" : ["live_007_closre",]
-	},
-	"peacok" : {
-		"name" : "Conviction",
-		"type" : "Specialist",
-		"group" : "",
-		"rarity" : "★★★",
-		"skin" : ["char_159_peacok",]
 	}
 };

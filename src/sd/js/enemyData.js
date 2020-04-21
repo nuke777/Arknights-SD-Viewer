@@ -543,6 +543,54 @@ var enemyData = {
 		"name" : "iced",
 		"skin" : ["enemy_1070_iced"]
 	},
+	"dftman" : {
+		"name" : "dftman",
+		"skin" : ["enemy_1071_dftman"]
+	},
+	"dftman_2" : {
+		"name" : "dftman_2",
+		"skin" : ["enemy_1071_dftman_2"]
+	},
+	"dlancer" : {
+		"name" : "dlancer",
+		"skin" : ["enemy_1072_dlancer"]
+	},
+	"dlancer_2" : {
+		"name" : "dlancer_2",
+		"skin" : ["enemy_1072_dlancer_2"]
+	},
+	"dscout" : {
+		"name" : "dscout",
+		"skin" : ["enemy_1073_dscout"]
+	},
+	"dscout_2" : {
+		"name" : "dscout_2",
+		"skin" : ["enemy_1073_dscout_2"]
+	},
+	"dbskar" : {
+		"name" : "dbskar",
+		"skin" : ["enemy_1074_dbskar"]
+	},
+	"dbskar_2" : {
+		"name" : "dbskar_2",
+		"skin" : ["enemy_1074_dbskar_2"]
+	},
+	"dmgswd" : {
+		"name" : "dmgswd",
+		"skin" : ["enemy_1075_dmgswd"]
+	},
+	"dmgswd_2" : {
+		"name" : "dmgswd_2",
+		"skin" : ["enemy_1075_dmgswd_2"]
+	},
+	"bsthmr" : {
+		"name" : "bsthmr",
+		"skin" : ["enemy_1076_bsthmr"]
+	},
+	"bsthmr_2" : {
+		"name" : "bsthmr_2",
+		"skin" : ["enemy_1076_bsthmr_2"]
+	},
 	"skulsr" : {
 		"name" : "skulsr",
 		"skin" : ["enemy_1500_skulsr"]
