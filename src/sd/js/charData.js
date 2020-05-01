@@ -1,4 +1,82 @@
 var charData = {
+	"cqbw" : {
+		"name" : "W",
+		"type" : "Sniper",
+		"group" : "",
+		"rarity" : "★★★★★★",
+		"skin" : ["char_113_cqbw",]
+	},
+	"weedy" : {
+		"name" : "Weedy",
+		"type" : "Specialist",
+		"group" : "",
+		"rarity" : "★★★★★★",
+		"skin" : ["char_400_weedy",]
+	},
+	"elysm" : {
+		"name" : "Elysium",
+		"type" : "Vanguard",
+		"group" : "",
+		"rarity" : "★★★★★",
+		"skin" : ["char_401_elysm",]
+	},
+	"therex" : {
+		"name" : "Thermal-EX",
+		"type" : "Specialist",
+		"group" : "",
+		"rarity" : "★",
+		"skin" : ["char_376_therex",]
+	},
+	"swllow" : {
+		"name" : "GreyThroat",
+		"type" : "Sniper",
+		"group" : "",
+		"rarity" : "★★★★★",
+		"skin" : ["char_367_swllow","char_367_swllow_boc",]
+	},
+	"aglina" : {
+		"name" : "Angelina",
+		"type" : "Supporter",
+		"group" : "",
+		"rarity" : "★★★★★★",
+		"back" : "false",
+		"skin" : ["char_291_aglina","char_291_aglina_boc",]
+	},
+	"midn" : {
+		"name" : "Midnight",
+		"type" : "Guard",
+		"group" : "",
+		"rarity" : "★★★",
+		"skin" : ["char_283_midn","char_283_midn_boc",]
+	},
+	"excu" : {
+		"name" : "Executor",
+		"type" : "Sniper",
+		"group" : "",
+		"rarity" : "★★★★★",
+		"skin" : ["char_279_excu","char_279_excu_boc",]
+	},
+	"demkni" : {
+		"name" : "Saria",
+		"type" : "Defender",
+		"group" : "",
+		"rarity" : "★★★★★★",
+		"skin" : ["char_202_demkni","char_202_demkni_boc",]
+	},
+	"whitew" : {
+		"name" : "Lappland",
+		"type" : "Guard",
+		"group" : "",
+		"rarity" : "★★★★★",
+		"skin" : ["char_140_whitew","char_140_whitew_boc",]
+	},
+	"amiya" : {
+		"name" : "Amiya",
+		"type" : "Caster",
+		"group" : "Rhodes Island",
+		"rarity" : "★★★★★",
+		"skin" : ["char_002_amiya","char_002_amiya_winter","char_002_amiya_epoque",]
+	},
 	"phatom" : {
 		"name" : "Phantom",
 		"type" : "Specialist",
@@ -82,13 +160,6 @@ var charData = {
 		"group" : "Rhodes Island",
 		"rarity" : "★★★★★",
 		"skin" : ["char_2013_cerber",]
-	},
-	"amiya" : {
-		"name" : "Amiya",
-		"type" : "Caster",
-		"group" : "Rhodes Island",
-		"rarity" : "★★★★★",
-		"skin" : ["char_002_amiya","char_002_amiya_winter",]
 	},
 	"12fce" : {
 		"name" : "12F",
@@ -300,13 +371,6 @@ var charData = {
 		"group" : "",
 		"rarity" : "★★★★",
 		"skin" : ["char_137_brownb",]
-	},
-	"whitew" : {
-		"name" : "Lappland",
-		"type" : "Guard",
-		"group" : "",
-		"rarity" : "★★★★★",
-		"skin" : ["char_140_whitew",]
 	},
 	"nights" : {
 		"name" : "Haze",
@@ -539,13 +603,6 @@ var charData = {
 		"rarity" : "★★★★★",
 		"skin" : ["char_201_moeshd","char_201_moeshd_kfc",]
 	},
-	"demkni" : {
-		"name" : "Saria",
-		"type" : "Defender",
-		"group" : "",
-		"rarity" : "★★★★★★",
-		"skin" : ["char_202_demkni",]
-	},
 	"platnm" : {
 		"name" : "Platinum",
 		"type" : "Sniper",
@@ -749,13 +806,6 @@ var charData = {
 		"rarity" : "★★★",
 		"skin" : ["char_278_orchid",]
 	},
-	"excu" : {
-		"name" : "Executor",
-		"type" : "Sniper",
-		"group" : "",
-		"rarity" : "★★★★★",
-		"skin" : ["char_279_excu",]
-	},
 	"popka" : {
 		"name" : "Popukar",
 		"type" : "Guard",
@@ -769,13 +819,6 @@ var charData = {
 		"group" : "",
 		"rarity" : "★★★",
 		"skin" : ["char_282_catap",]
-	},
-	"midn" : {
-		"name" : "Midnight",
-		"type" : "Guard",
-		"group" : "",
-		"rarity" : "★★★",
-		"skin" : ["char_283_midn",]
 	},
 	"spot" : {
 		"name" : "Spot",
@@ -811,14 +854,6 @@ var charData = {
 		"group" : "",
 		"rarity" : "★★★★",
 		"skin" : ["char_290_vigna","char_290_vigna_summer",]
-	},
-	"aglina" : {
-		"name" : "Angelina",
-		"type" : "Supporter",
-		"group" : "",
-		"rarity" : "★★★★★★",
-		"back" : "false",
-		"skin" : ["char_291_aglina",]
 	},
 	"susuro" : {
 		"name" : "Sussurro",
@@ -882,13 +917,6 @@ var charData = {
 		"group" : "",
 		"rarity" : "★★★★★",
 		"skin" : ["char_356_broca",]
-	},
-	"swllow" : {
-		"name" : "GreyThroat",
-		"type" : "Sniper",
-		"group" : "",
-		"rarity" : "★★★★★",
-		"skin" : ["char_367_swllow",]
 	},
 	"snsant" : {
 		"name" : "Snowsant",
@@ -991,6 +1019,23 @@ var charData = {
 		"group" : "",
 		"rarity" : "★★★★★",
 		"skin" : ["token_10006_vodfox_doll",],
+		"back" : false,
+		"dorm" : false,
+	},
+	"weedy_cannon" : {
+		"name" : "Weedy - Cannon",
+		"type" : "Summon",
+		"group" : "",
+		"rarity" : "★★★★★★",
+		"skin" : ["token_10009_weedy_cannon",],
+		"dorm" : false,
+	},
+	"cqbw_box" : {
+		"name" : "W - Box",
+		"type" : "Summon",
+		"group" : "",
+		"rarity" : "★★★★★★",
+		"skin" : ["token_10008_cqbw_box",],
 		"back" : false,
 		"dorm" : false,
 	},

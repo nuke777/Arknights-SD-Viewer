@@ -591,6 +591,86 @@ var enemyData = {
 		"name" : "bsthmr_2",
 		"skin" : ["enemy_1076_bsthmr_2"]
 	},
+	"sotihd" : {
+		"name" : "sotihd",
+		"skin" : ["enemy_1077_sotihd"]
+	},
+	"sotihd_2" : {
+		"name" : "sotihd_2",
+		"skin" : ["enemy_1077_sotihd_2"]
+	},
+	"sotisc" : {
+		"name" : "sotisc",
+		"skin" : ["enemy_1078_sotisc"]
+	},
+	"sotisc_2" : {
+		"name" : "sotisc_2",
+		"skin" : ["enemy_1078_sotisc_2"]
+	},
+	"sotisp" : {
+		"name" : "sotisp",
+		"skin" : ["enemy_1079_sotisp"]
+	},
+	"sotisp_2" : {
+		"name" : "sotisp_2",
+		"skin" : ["enemy_1079_sotisp_2"]
+	},
+	"sotidp" : {
+		"name" : "sotidp",
+		"skin" : ["enemy_1080_sotidp"]
+	},
+	"sotidp_2" : {
+		"name" : "sotidp_2",
+		"skin" : ["enemy_1080_sotidp_2"]
+	},
+	"sotisd" : {
+		"name" : "sotisd",
+		"skin" : ["enemy_1081_sotisd"]
+	},
+	"sotisd_2" : {
+		"name" : "sotisd_2",
+		"skin" : ["enemy_1081_sotisd_2"]
+	},
+	"soticn" : {
+		"name" : "soticn",
+		"skin" : ["enemy_1082_soticn"]
+	},
+	"soticn_2" : {
+		"name" : "soticn_2",
+		"skin" : ["enemy_1082_soticn_2"]
+	},
+	"sotiab" : {
+		"name" : "sotiab",
+		"skin" : ["enemy_1083_sotiab"]
+	},
+	"sotiab_2" : {
+		"name" : "sotiab_2",
+		"skin" : ["enemy_1083_sotiab_2"]
+	},
+	"sotidm" : {
+		"name" : "sotidm",
+		"skin" : ["enemy_1084_sotidm"]
+	},
+	"sotidm_2" : {
+		"name" : "sotidm_2",
+		"skin" : ["enemy_1084_sotidm_2"]
+	},
+	"sotidm_3" : {
+		"name" : "sotidm_3",
+		"skin" : ["enemy_1084_sotidm_3"]
+	},
+	"sotiwz" : {
+		"name" : "sotiwz",
+		"skin" : ["enemy_1085_sotiwz"]
+	},
+	"sotiwz_2" : {
+		"name" : "sotiwz_2",
+		"skin" : ["enemy_1085_sotiwz_2"]
+	},
+	"sotiwz_3" : {
+		"name" : "sotiwz_3",
+		"skin" : ["enemy_1085_sotiwz_3"]
+	},
 	"skulsr" : {
 		"name" : "skulsr",
 		"skin" : ["enemy_1500_skulsr"]
@@ -610,6 +690,10 @@ var enemyData = {
 	"frstar" : {
 		"name" : "frstar",
 		"skin" : ["enemy_1505_frstar"]
+	},
+	"patrt" : {
+		"name" : "patrt",
+		"skin" : ["enemy_1506_patrt"]
 	},
 	"mephi" : {
 		"name" : "mephi",
