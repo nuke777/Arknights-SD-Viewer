@@ -1,4 +1,81 @@
 var charData = {
+	"poca" : {
+		"name" : "Poca",
+		"type" : "Sniper",
+		"group" : "",
+		"rarity" : "★★★★★★",
+		"skin" : ["char_197_poca",]
+	},
+	"absin" : {
+		"name" : "Absinthe",
+		"type" : "Caster",
+		"group" : "",
+		"rarity" : "★★★★★",
+		"skin" : ["char_405_absin",]
+	},
+	"lionhd" : {
+		"name" : "Leonhardt",
+		"type" : "Caster",
+		"group" : "",
+		"rarity" : "★★★★★",
+		"skin" : ["char_373_lionhd",]
+	},
+	"podego" : {
+		"name" : "Podenco",
+		"type" : "Supporter",
+		"group" : "",
+		"rarity" : "★★★★",
+		"skin" : ["char_258_podego",]
+	},
+	"glassb" : {
+		"name" : "Istina",
+		"type" : "Supporter",
+		"group" : "",
+		"rarity" : "★★★★★",
+		"skin" : ["char_195_glassb","char_195_glassb_kitchen",]
+	},
+	"brownb" : {
+		"name" : "Beehunter",
+		"type" : "Guard",
+		"group" : "",
+		"rarity" : "★★★★",
+		"skin" : ["char_137_brownb","char_137_brownb_kitchen",]
+	},
+	"mgllan" : {
+		"name" : "Magallan",
+		"type" : "Supporter",
+		"group" : "",
+		"rarity" : "★★★★★★",
+		"skin" : ["char_248_mgllan","char_248_mgllan_kitchen",]
+	},
+	"mantic" : {
+		"name" : "Manticore",
+		"type" : "Specialist",
+		"group" : "",
+		"rarity" : "★★★★★",
+		"skin" : ["char_215_mantic","char_215_mantic_epoque",]
+	},
+	"asbest" : {
+		"name" : "Asbestos",
+		"type" : "Defender",
+		"group" : "",
+		"rarity" : "★★★★★",
+		"skin" : ["char_378_asbest",]
+	},
+	"tknogi" : {
+		"name" : "Tsukinogi",
+		"type" : "Supporter",
+		"group" : "",
+		"rarity" : "★★★★★",
+		"skin" : ["char_343_tknogi",]
+	},
+	"beagle" : {
+		"name" : "Beagle",
+		"type" : "Defender",
+		"group" : "",
+		"rarity" : "★★★",
+		"skin" : ["char_122_beagle","char_122_beagle_boc",]
+	},
 	"cqbw" : {
 		"name" : "W",
 		"type" : "Sniper",
@@ -281,13 +358,6 @@ var charData = {
 		"rarity" : "★★★",
 		"skin" : ["char_121_lava",]
 	},
-	"beagle" : {
-		"name" : "Beagle",
-		"type" : "Defender",
-		"group" : "",
-		"rarity" : "★★★",
-		"skin" : ["char_122_beagle",]
-	},
 	"fang" : {
 		"name" : "Fang",
 		"type" : "Vanguard",
@@ -364,13 +434,6 @@ var charData = {
 		"group" : "",
 		"rarity" : "★★★★★★",
 		"skin" : ["char_136_hsguma","char_136_hsguma_nian",]
-	},
-	"brownb" : {
-		"name" : "Beehunter",
-		"type" : "Guard",
-		"group" : "",
-		"rarity" : "★★★★",
-		"skin" : ["char_137_brownb",]
 	},
 	"nights" : {
 		"name" : "Haze",
@@ -568,13 +631,6 @@ var charData = {
 		"rarity" : "★★★★",
 		"skin" : ["char_193_frostl",]
 	},
-	"glassb" : {
-		"name" : "Istina",
-		"type" : "Supporter",
-		"group" : "",
-		"rarity" : "★★★★★",
-		"skin" : ["char_195_glassb",]
-	},
 	"sunbr" : {
 		"name" : "Gummy",
 		"type" : "Defender",
@@ -651,13 +707,6 @@ var charData = {
 		"group" : "",
 		"rarity" : "★★★★★★",
 		"skin" : ["char_213_mostma",]
-	},
-	"mantic" : {
-		"name" : "Manticore",
-		"type" : "Specialist",
-		"group" : "",
-		"rarity" : "★★★★★",
-		"skin" : ["char_215_mantic",]
 	},
 	"meteo" : {
 		"name" : "Meteorite",
@@ -742,13 +791,6 @@ var charData = {
 		"group" : "",
 		"rarity" : "★★★★★",
 		"skin" : ["char_243_waaifu",]
-	},
-	"mgllan" : {
-		"name" : "Magallan",
-		"type" : "Supporter",
-		"group" : "",
-		"rarity" : "★★★★★★",
-		"skin" : ["char_248_mgllan",]
 	},
 	"greyy" : {
 		"name" : "Greyy",
@@ -1001,7 +1043,7 @@ var charData = {
 		"type" : "Summon",
 		"group" : "",
 		"rarity" : "★★★★★★",
-		"skin" : ["token_10005_mgllan_drone1","token_10005_mgllan_drone2","token_10005_mgllan_drone3",],
+		"skin" : ["token_10005_mgllan_drone1","token_10005_mgllan_drone2","token_10005_mgllan_drone3","token_10005_mgllan_drone1_kitchen","token_10005_mgllan_drone2_kitchen","token_10005_mgllan_drone3_kitchen",],
 		"back" : false,
 		"dorm" : false,
 	},
