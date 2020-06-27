@@ -144,8 +144,6 @@ function group_by(){
 
 function risk_level(){	
 	for (i in this.raw_data){
-		if (i==0)
-			continue;
 		if (!this.risk.includes(this.raw_data[i][0]))
 			this.risk.push(this.raw_data[i][0]);
 	}
