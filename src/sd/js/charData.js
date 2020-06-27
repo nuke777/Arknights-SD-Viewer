@@ -541,7 +541,7 @@ var charData = {
 		"skin" : ["char_171_bldsk","char_171_bldsk_witch",]
 	},
 	"svrash" : {
-		"name" : "SilverAsh",
+		"name" : "Silverash",
 		"type" : "Guard",
 		"group" : "",
 		"rarity" : "★★★★★★",
@@ -772,7 +772,7 @@ var charData = {
 		"skin" : ["char_240_wyvern",]
 	},
 	"panda" : {
-		"name" : "FEater",
+		"name" : "Feater",
 		"type" : "Specialist",
 		"group" : "",
 		"rarity" : "★★★★★",

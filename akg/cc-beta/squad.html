@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>/akg/ Contingency Contract β - Squad</title>
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <style>
+            body {
+                background: url('../img/cc-beta-bg.jpg') no-repeat center center fixed; 
+                background-size: cover;
+                font-family: 'Poppins', sans-serif;
+            }
+            #footer {
+                position: absolute;
+                height: auto;
+                width: 100%;
+                overflow: hidden;
+                left: 0;
+                background-color: #24252d;
+                color: white;
+                text-align: left;
+                padding:10px 20px 10px 20px;
+                font-size:10px;
+            }
+            .darken {
+                height: 100%;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                position: absolute;
+                left: 0px;
+            }
+            .selector {
+                width: 70%;
+                height: 90%;
+                position: absolute;
+                left: 15%;
+                background-color: #5c5d70;
+                overflow-y: auto;
+                padding: 10px;
+                border-radius: 3px;
+            }
+            .screencap-bg {
+                position: absolute;
+                left: 90%;
+                top: 150px;
+                background-color: #e5d62e;
+                height: 40px;
+                width: 55px;
+                border-radius: 0px 5px 5px 0px;
+                line-height: 35px;
+                text-align: center;
+                vertical-align: middle;
+                cursor: pointer;
+            }
+            .loader {
+                border: 16px solid #f3f3f3;
+                border-radius: 50%;
+                border-top: 16px solid rgba(250,131,34,1);
+                width: 120px;
+                height: 120px;
+                -webkit-animation: spin 0.5s linear infinite; /* Safari */
+                animation: spin 0.5s linear infinite;
+                display: inline-block;
+            }
+            /* Safari */
+            @-webkit-keyframes spin {
+                0% { -webkit-transform: rotate(0deg); }
+                100% { -webkit-transform: rotate(360deg); }
+            }
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            .cc-select {
+                position: absolute;
+                height: 75px;
+                width: 100%;
+                left: 0;
+                top: 0;
+                background-color: rgba(0,0,0,0.75);
+            }
+            .menu-bar {
+                position: absolute;
+                height: 30px;
+                width: 100%;
+                left: 0;
+                top: 75px;
+                background-color: rgba(29,31,33,1);
+            }
+            .cc-title{
+                position: absolute;
+                height: 50px;
+                width: 235px;
+                left: 0;
+                top: 0;
+                color: white;
+                font-family: 'Impact';
+                text-align: center;
+                vertical-align: middle;
+                line-height: 50px;
+                font-size: 20px;
+                background-color: rgba(56,31,23,1); 
+            }
+            .triangle-topleft {
+                position: absolute;
+                left: 235px;
+                top: 0;
+                width: 0px;
+                height: 0px;
+                border-top: 50px solid rgba(56,31,23,1);
+                border-right: 50px solid transparent;
+            }
+            .menu-container {
+                position: absolute;
+                display: inline-block;
+                height: 30px;
+                width: auto;
+                left: 300px;
+                top: 0;
+            }
+            .menu-button {
+                height: 30px;
+                width: auto;
+                padding: 0px 10px 0px 10px;
+                text-align: center;
+                vertical-align: middle;
+                line-height: 30px;
+                color: gray;
+                font-size: 12px;
+                cursor: pointer;
+                float: left;
+            }
+            .menu-button:hover {
+                color: rgba(200,200,200,1);
+            }
+            .menu-button-selected {
+                color: white;
+                background-color: rgba(50,50,50,1);
+            }
+            .cc-wrapper {
+                position: absolute;
+                left: 0;
+                top: 150px;
+                height: auto;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 100px;
+            }
+            .cc-loader-body {
+                background-color: rgba(29,31,33,1);
+                width: 80%;
+                height: 720px;
+                display: inline-block;
+                text-align: center;
+                vertical-align: middle;
+                line-height: 720px;
+            }
+            .cc-body {
+                background-color: rgba(45,45,45,1);
+                width: 80%;
+                height: auto;
+                display: none;
+            }
+            .cc-body-tag-container {
+                width: 100%;
+                height: 30px;
+                text-align: left;
+                margin-top: 3px;
+            }
+            .cc-body-tag-label {
+                background-color: rgba(131,40,32,1);
+                width: 100px;
+                height: 30px;
+                color: white;
+                font-weight: bold;
+                font-size: 12px;
+                display: inline-block;
+                line-height: 30px;
+                text-align: center;
+                vertical-align: middle;
+            }
+            .cc-body-tag {
+                background-color: rgba(25,25,25,1);
+                width: 75px;
+                height: 30px;
+                color: gray;
+                font-size: 12px;
+                display: inline-block;
+                line-height: 30px;
+                text-align: center;
+                vertical-align: middle;
+                cursor: pointer;
+                margin-right: 3px;
+            }
+            .cc-body-tag:hover {
+                color: rgba(200,200,200,1);                
+            }
+            .cc-body-tag-active{                
+                background-color: rgba(189,89,23,1);
+                color: white;
+                font-weight: bold;
+            }
+            .cc-main-body{
+                background-color: rgba(29,31,33,1);
+                color: white;
+                width: 100%;
+                height: auto;
+                overflow: auto;
+                padding-left: 30px;
+                padding-right: 30px;
+                padding-bottom: 50px;
+            }
+            .cc-main-body-header-line{
+                background-color: rgba(43,18,18,1);
+                width: 100%;
+                height: 25px;
+            }
+            .cc-operator-container {
+                position: relative;
+                float: left;
+                width: 175px;
+                height: 115px;
+                background-color: rgba(0,0,0,0);
+                margin-top: 15px;
+                margin-left: 15px;
+            }
+            .cc-operator-icon {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 90px;
+                width: 90px;
+                background-image: url("https://media.nuke.moe/arknights/portraits/char_195_glassb_kitchen_1.png");
+                background-size: 90px 90px;
+            }
+            .cc-operator-rect {
+                position: absolute;
+                top: 30px;
+                left: 45px;
+                height: 45px;
+                width: 90px;
+                background-color: rgba(131,41,32,1);
+            }
+            .cc-operator-tri {
+                position: absolute;
+                left: 135px;
+                top: 30px;
+                width: 0px;
+                height: 0px;
+                border-top: 45px solid rgba(131,41,32,1);
+                border-right: 40px solid transparent;
+            }
+            .cc-operator-text {
+                position: absolute;
+                height: auto;
+                width: auto;
+                color: white;
+                font-size: 13px;
+                font-weight: bold;
+            }
+            .cc-operator-text-count{
+                left: 93px;
+                top: 33px; 
+            }
+            .cc-operator-text-pct{
+                left: 93px;
+                top: 52px; 
+            }
+            .cc-operator-text-name{
+                left: 10px;
+                top: 92px; 
+            }
+            .cc-operator-group-header{
+                width: 100%;
+                height: auto;
+                font-family: "Impact";
+                font-style: italic;
+                font-size: 30px;
+                color: white;
+                text-align: left;
+                padding-left: 30px;
+                padding-top: 50px;
+                display: flex;
+            }
+            .cc-operator-group-header-med{
+                width: 100%;
+                height: auto;
+                font-family: "Impact";
+                font-style: italic;
+                font-size: 20px;
+                color: white;
+                text-align: left;
+                padding-left: 30px;
+                padding-top: 50px;
+                display: flex;
+            }
+            .cc-operator-main-title {
+                width: 100%;
+                height: auto;
+                font-family: "Impact";
+                font-size: 35px;
+                color: white;
+                margin-top: 20px;
+                margin-left: -30px;
+                text-align: center;
+            }
+            .cc-operator-main-title-med {
+                width: 100%;
+                height: auto;
+                font-family: "Impact";
+                font-size: 25px;
+                color: white;
+                margin-left: -30px;
+                text-align: center;
+            }
+            .cc-operator-date-refresh {
+                width: 100%;
+                height: auto;
+                font-size: 10px;
+                color: white;
+                margin-left: -30px;
+                text-align: center;
+            }
+            table.wikitable {
+                margin: 1em 0;
+                border-style: solid;
+                border-width: 1px;
+                border-color: #5c5d70;
+                border-collapse: collapse;
+                color: #ffffff;
+                height: 100%;
+                width: 100%;
+            }
+            table.wikitable th {
+                border-style: solid;
+                border-width: 1px;
+                border-color: #5c5d70;                
+                background-color: #373743;
+                border-collapse: collapse;
+            }
+            table.wikitable td {
+                border-style: solid;
+                border-width: 1px;
+                border-color: #5c5d70;
+                border-collapse: collapse;
+            }
+            .cc-image-big {
+                margin-top: 20px;
+                width: 80%;
+                height: auto;
+            }
+            .cc-image-med {
+                margin-top: 20px;
+                width: 38%;
+                height: auto;
+            }
+        </style>
+
+        <link rel="stylesheet" href="../../src/lib/css/bootstrap.min.css"> <!-- 4.3.1-->
+        <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    </head>
+
+
+    <body>
+        <div class="cc-select"></div>
+        <div class="menu-bar">            
+            <div class="cc-title">CONTINGENCY CONTRACT β</div>
+            <div class="triangle-topleft"></div>            
+            <div class="menu-container">
+                <a href="/akg/cc-beta"><div class="menu-button">Summary</div></a>
+                <a href="/akg/cc-beta/operator"><div class="menu-button">Top Operator Usage</div></a>
+                <a href="/akg/cc-beta/support"><div class="menu-button">Supports</div></a>
+                <a href="/akg/cc-beta/squad"><div class="menu-button menu-button-selected">Squads</div></a>
+                <a href="/akg/cc-beta/data"><div class="menu-button">Data</div></a>
+            </div>
+        </div>
+        <div class="cc-wrapper">
+            <div class="cc-loader-body">
+                <div class="loader"></div>
+            </div>
+            <div class="cc-body">
+                <div class="cc-main-body" id="cc_main_body">
+                    <div class="cc-operator-main-title">CONTINGENCY CONTRACT β /akg/ SQUADS</div>
+                    <div class="cc-operator-main-title-med">(5 Operator)</div>
+                    <div class="cc-operator-date-refresh">Updated: 2020/06/26 22:00:00 UTC</div>                    
+                    <div class="cc-operator-group-header">Most Unique Squads</div>
+                    <div><img src="img/1593139035943.png" class="cc-image-big"></div>
+                    <div>
+                        <img src="img/1592995520956.png" class="cc-image-med">
+                        <img src="img/1593119419914.jpg" class="cc-image-med" style="margin-left: 4%">
+                    </div>
+                    <div class="cc-operator-group-header">Most Generic Squads</div>
+                    <div><img src="img/1592882885825.jpg" class="cc-image-big"></div>
+                    <div>
+                        <img src="img/1592770756870.jpg" class="cc-image-med">
+                        <img src="img/1592882885825.jpg" class="cc-image-med" style="margin-left: 4%">
+                    </div>
+                    <div class="cc-operator-group-header">Top Squad Compositions</div>
+                    <div class="cc-operator-group-header-med">#1 - 38</div>
+                    <div class="cc-operator-container">
+                        <div class="cc-operator-rect"></div>
+                        <div class="cc-operator-tri"></div>
+                        <div class="cc-operator-icon" style="background-image: url(../../assets/portraits/char_151_myrtle_1.png)"></div>
+                        <div class="cc-operator-text cc-operator-text-name">Myrtle</div>
+                    </div>
+                    <div class="cc-operator-container">
+                        <div class="cc-operator-rect"></div>
+                        <div class="cc-operator-tri"></div>
+                        <div class="cc-operator-icon" style="background-image: url(../../assets/portraits/char_144_red_1.png)"></div>
+                        <div class="cc-operator-text cc-operator-text-name">Projekt Red</div>
+                    </div>
+                    <div class="cc-operator-container">
+                        <div class="cc-operator-rect"></div>
+                        <div class="cc-operator-tri"></div>
+                        <div class="cc-operator-icon" style="background-image: url(../../assets/portraits/char_237_gravel_1.png)"></div>
+                        <div class="cc-operator-text cc-operator-text-name">Gravel</div>
+                    </div>
+                    <div class="cc-operator-container">
+                        <div class="cc-operator-rect"></div>
+                        <div class="cc-operator-tri"></div>
+                        <div class="cc-operator-icon" style="background-image: url(../../assets/portraits/char_180_amgoat_1.png)"></div>
+                        <div class="cc-operator-text cc-operator-text-name">Eyjafjalla</div>
+                    </div>
+                    <div class="cc-operator-container">
+                        <div class="cc-operator-rect"></div>
+                        <div class="cc-operator-tri"></div>
+                        <div class="cc-operator-icon" style="background-image: url(../../assets/portraits/char_134_ifrit_1.png)"></div>
+                        <div class="cc-operator-text cc-operator-text-name">Ifrit</div>
+                    </div>
+                    <div class="cc-operator-group-header-med">#2 - 38</div>
+                    <div class="cc-operator-container">
+                        <div class="cc-operator-rect"></div>
+                        <div class="cc-operator-tri"></div>
+                        <div class="cc-operator-icon" style="background-image: url(../../assets/portraits/char_291_aglina_1.png)"></div>
+                        <div class="cc-operator-text cc-operator-text-name">Angelina</div>
+                    </div>
+                    <div class="cc-operator-container">
+                        <div class="cc-operator-rect"></div>
+                        <div class="cc-operator-tri"></div>
+                        <div class="cc-operator-icon" style="background-image: url(../../assets/portraits/char_202_demkni_1.png)"></div>
+                        <div class="cc-operator-text cc-operator-text-name">Saria</div>
+                    </div>
+                    <div class="cc-operator-container">
+                        <div class="cc-operator-rect"></div>
+                        <div class="cc-operator-tri"></div>
+                        <div class="cc-operator-icon" style="background-image: url(../../assets/portraits/char_241_panda_1.png)"></div>
+                        <div class="cc-operator-text cc-operator-text-name">Feater</div>
+                    </div>
+                    <div class="cc-operator-container">
+                        <div class="cc-operator-rect"></div>
+                        <div class="cc-operator-tri"></div>
+                        <div class="cc-operator-icon" style="background-image: url(../../assets/portraits/char_140_whitew_1.png)"></div>
+                        <div class="cc-operator-text cc-operator-text-name">Lappland</div>
+                    </div>
+                    <div class="cc-operator-container">
+                        <div class="cc-operator-rect"></div>
+                        <div class="cc-operator-tri"></div>
+                        <div class="cc-operator-icon" style="background-image: url(../../assets/portraits/char_172_svrash_1.png)"></div>
+                        <div class="cc-operator-text cc-operator-text-name">Silverash</div>
+                    </div>
+                    <div class="cc-operator-group-header"></div>
+                    <table class="wikitable">
+                        <tr>
+                            <th>Count</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="screencap-bg">
+            <img src="../img/snap.png">
+        </div>        
+    </body>   
+        
+        <footer id="false" style="height:70px;width:100%;margin-top: 20px;">
+        </footer>
+
+        <footer id="footer">
+            Arknights © is owned by Hypergryph, Yostar | All logos and trademarks are property of their respective owners.<br>
+            This is a non-profit website.
+        </footer>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+        <script src="../../src/sd/js/charData.js"></script>
+        <script src="../js/squad.js"></script>
+        <script src="../lib/papaparse.min.js"></script>
+        <script src="../lib/html2canvas.min.js"></script>
+
+</html>
