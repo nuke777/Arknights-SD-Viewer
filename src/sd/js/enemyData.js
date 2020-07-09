@@ -671,6 +671,62 @@ var enemyData = {
 		"name" : "sotiwz_3",
 		"skin" : ["enemy_1085_sotiwz_3"]
 	},
+	"ltsodr" : {
+		"name" : "ltsodr",
+		"skin" : ["enemy_1086_ltsodr"]
+	},
+	"ltsodr_2" : {
+		"name" : "ltsodr_2",
+		"skin" : ["enemy_1086_ltsodr_2"]
+	},
+	"ltwolf" : {
+		"name" : "ltwolf",
+		"skin" : ["enemy_1087_ltwolf"]
+	},
+	"ltwolf_2" : {
+		"name" : "ltwolf_2",
+		"skin" : ["enemy_1087_ltwolf_2"]
+	},
+	"ltsmer" : {
+		"name" : "ltsmer",
+		"skin" : ["enemy_1088_ltsmer"]
+	},
+	"ltsmer_2" : {
+		"name" : "ltsmer_2",
+		"skin" : ["enemy_1088_ltsmer_2"]
+	},
+	"ltlntc" : {
+		"name" : "ltlntc",
+		"skin" : ["enemy_1089_ltlntc"]
+	},
+	"ltlntc_2" : {
+		"name" : "ltlntc_2",
+		"skin" : ["enemy_1089_ltlntc_2"]
+	},
+	"mdsnpr" : {
+		"name" : "mdsnpr",
+		"skin" : ["enemy_1090_mdsnpr"]
+	},
+	"mdsnpr_2" : {
+		"name" : "mdsnpr_2",
+		"skin" : ["enemy_1090_mdsnpr_2"]
+	},
+	"mdhmmr" : {
+		"name" : "mdhmmr",
+		"skin" : ["enemy_1091_mdhmmr"]
+	},
+	"mdhmmr_2" : {
+		"name" : "mdhmmr_2",
+		"skin" : ["enemy_1091_mdhmmr_2"]
+	},
+	"mdgint" : {
+		"name" : "mdgint",
+		"skin" : ["enemy_1092_mdgint"]
+	},
+	"mdgint_2" : {
+		"name" : "mdgint_2",
+		"skin" : ["enemy_1092_mdgint_2"]
+	},
 	"skulsr" : {
 		"name" : "skulsr",
 		"skin" : ["enemy_1500_skulsr"]
@@ -710,5 +766,9 @@ var enemyData = {
 	"frstar2" : {
 		"name" : "frstar2",
 		"skin" : ["enemy_1510_frstar2"]
+	},
+	"mdrock" : {
+		"name" : "mdrock",
+		"skin" : ["enemy_1511_mdrock"]
 	},
 };

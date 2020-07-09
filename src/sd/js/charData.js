@@ -1,4 +1,53 @@
 var charData = {
+	"lisa" : {
+		"name" : "Suzuran",
+		"type" : "Supporter",
+		"group" : "",
+		"rarity" : "★★★★★★",
+		"skin" : ["char_358_lisa",]
+	},
+	"folnic" : {
+		"name" : "Folinic",
+		"type" : "Medic",
+		"group" : "",
+		"rarity" : "★★★★★",
+		"skin" : ["char_345_folnic",]
+	},
+	"ayer" : {
+		"name" : "Ayerscarpe",
+		"type" : "Guard",
+		"group" : "",
+		"rarity" : "★★★★★",
+		"skin" : ["char_294_ayer",]
+	},
+	"cammou" : {
+		"name" : "Click",
+		"type" : "Caster",
+		"group" : "",
+		"rarity" : "★★★★",
+		"skin" : ["char_328_cammou",]
+	},	
+	"mostma" : {
+		"name" : "Mostima",
+		"type" : "Caster",
+		"group" : "",
+		"rarity" : "★★★★★★",
+		"skin" : ["char_213_mostma","char_213_mostma_epoque",]
+	},
+	"astesi" : {
+		"name" : "Astesia",
+		"type" : "Guard",
+		"group" : "",
+		"rarity" : "★★★★★",
+		"skin" : ["char_274_astesi","char_274_astesi_epoque",]
+	},
+	"nightm" : {
+		"name" : "Nightmare",
+		"type" : "Caster",
+		"group" : "",
+		"rarity" : "★★★★★",
+		"skin" : ["char_164_nightm","char_164_nightm_epoque",]
+	},
 	"poca" : {
 		"name" : "Poca",
 		"type" : "Sniper",
@@ -519,13 +568,6 @@ var charData = {
 		"rarity" : "★★★★★",
 		"skin" : ["char_163_hpsts",]
 	},
-	"nightm" : {
-		"name" : "Nightmare",
-		"type" : "Caster",
-		"group" : "",
-		"rarity" : "★★★★★",
-		"skin" : ["char_164_nightm",]
-	},
 	"skfire" : {
 		"name" : "Skyfire",
 		"type" : "Caster",
@@ -701,13 +743,6 @@ var charData = {
 		"rarity" : "★★★",
 		"skin" : ["char_212_ansel","char_212_ansel_summer",]
 	},
-	"mostma" : {
-		"name" : "Mostima",
-		"type" : "Caster",
-		"group" : "",
-		"rarity" : "★★★★★★",
-		"skin" : ["char_213_mostma",]
-	},
 	"meteo" : {
 		"name" : "Meteorite",
 		"type" : "Sniper",
@@ -819,13 +854,6 @@ var charData = {
 		"group" : "",
 		"rarity" : "★★★★★★",
 		"skin" : ["char_263_skadi",]
-	},
-	"astesi" : {
-		"name" : "Astesia",
-		"type" : "Guard",
-		"group" : "",
-		"rarity" : "★★★★★",
-		"skin" : ["char_274_astesi",]
 	},
 	"breeze" : {
 		"name" : "Breeze",
