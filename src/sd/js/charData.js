@@ -1,4 +1,39 @@
 var charData = {
+	"beewax" : {
+		"name" : "Beeswax",
+		"type" : "Caster",
+		"group" : "",
+		"rarity" : "★★★★★",
+		"skin" : ["char_344_beewax",]
+	},
+	"folivo" : {
+		"name" : "Scene",
+		"type" : "Supporter",
+		"group" : "",
+		"rarity" : "★★★★★",
+		"skin" : ["char_336_folivo",]
+	},
+	"chiave" : {
+		"name" : "Chiave",
+		"type" : "Vanguard",
+		"group" : "",
+		"rarity" : "★★★★★",
+		"skin" : ["char_349_chiave",]
+	},
+	"nearl" : {
+		"name" : "Nearl",
+		"type" : "Defender",
+		"group" : "",
+		"rarity" : "★★★★★",
+		"skin" : ["char_148_nearl","char_148_nearl_summer",]
+	},
+	"rope" : {
+		"name" : "Rope",
+		"type" : "Specialist",
+		"group" : "",
+		"rarity" : "★★★★",
+		"skin" : ["char_236_rope","char_236_rope_witch","char_236_rope_summer",]
+	},
 	"lisa" : {
 		"name" : "Suzuran",
 		"type" : "Supporter",
@@ -519,13 +554,6 @@ var charData = {
 		"rarity" : "★★★★★★",
 		"skin" : ["char_147_shining","char_147_shining_summer",]
 	},
-	"nearl" : {
-		"name" : "Nearl",
-		"type" : "Defender",
-		"group" : "",
-		"rarity" : "★★★★★",
-		"skin" : ["char_148_nearl",]
-	},
 	"scave" : {
 		"name" : "Scavenger",
 		"type" : "Vanguard",
@@ -784,13 +812,6 @@ var charData = {
 		"group" : "",
 		"rarity" : "★★★★",
 		"skin" : ["char_235_jesica","char_235_jesica_nian","char_235_jesica_sweep","char_235_jesica_wild",]
-	},
-	"rope" : {
-		"name" : "Rope",
-		"type" : "Specialist",
-		"group" : "",
-		"rarity" : "★★★★",
-		"skin" : ["char_236_rope","char_236_rope_witch",]
 	},
 	"gravel" : {
 		"name" : "Gravel",
